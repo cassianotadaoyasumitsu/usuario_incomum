@@ -1,13 +1,86 @@
-.c-login {
-  border-radius: 8px;
-  box-shadow: 2px 2px 4px #231933;
-  margin-top: 10%;
-  background-color: white;
+input {
+    border: none;
+    outline: none
 }
-.login-page {
-  background-color: #563e7c;
-  border-radius: 8px 0 0 8px;
+
+.container {
+    border-radius: 15px
 }
-.login {
-  padding: 60px 60px 60px 60px;
+
+@media(min-width:992px) {
+    img {
+        width: 500px;
+        height: 500px
+    }
+
+    #circle {
+        border: 10px solid rgba(255, 0, 234, 0.945);
+        border-radius: 50%;
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        left: 290px;
+        top: -25px
+    }
+
+    .container {
+        background-image: linear-gradient(to bottom, rgb(255, 255, 255) 80%, rgb(242, 242, 253), rgb(164, 164, 235))
+    }
+}
+
+@media(max-width:991px) {
+    img {
+        display: none
+    }
+
+    #circle {
+        border: 10px solid rgba(255, 0, 234, 0.945);
+        border-radius: 50%;
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        left: 100px;
+        top: -25px
+    }
+
+    .container {
+        background-image: linear-gradient(to bottom, rgb(255, 255, 255) 80%, rgb(242, 242, 253), rgb(164, 164, 235))
+    }
+}
+
+@media(max-width:768px) {
+    img {
+        display: none
+    }
+
+    #circle {
+        border: 10px solid rgba(255, 0, 234, 0.945);
+        border-radius: 50%;
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        left: 302px;
+        top: -29px
+    }
+}
+
+@media(max-width:567px) {
+    img {
+        display: none
+    }
+
+    .container {
+        margin-left: 0px;
+        margin-top: 30px
+    }
+
+    #circle {
+        border: 10px solid rgba(255, 0, 234, 0.945);
+        border-radius: 50%;
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        left: 202px;
+        top: -29px
+    }
 }
