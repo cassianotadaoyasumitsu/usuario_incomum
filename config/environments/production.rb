@@ -1,6 +1,16 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
+  config.action_mailer.default_url_options = { host: "https://www.usuarioincomum.com" }
   # Settings specified here will take precedence over those in config/application.rb.
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.zoho.com',
+    port: 465,
+    user_name: 'contato@usuarioincomum.com',
+    password: 'Cassian0',
+    authentication: 'plain',
+    ssl: true,
+    tls: true,
+    enabel_starttls_auto: true
 
   # Code is not reloaded between requests.
   config.cache_classes = true
