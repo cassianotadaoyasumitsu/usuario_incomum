@@ -11,6 +11,7 @@ Rails.application.configure do
     ssl: true,
     tls: true,
     enabel_starttls_auto: true
+  }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
