@@ -1,0 +1,17 @@
+<div class="container p-5 mt-5 mb-5">
+  <p>Nome: <%= @user.name %> </p>
+  <p>Sexo: <%= @user.gender %> </p>
+  <p>Idade: <%= @user.age %> </p>
+  <p>Tipo de Usuário: <%= @user.kind %> </p>
+  <p>Endereço: <%= @user.address %> </p>
+  <p>Telefone: <%= @user.phone %> </p>
+  <p>Prefeitura: <%= @user.prefecture %> </p>
+  <p>Nihongo <%= @user.nihongo %> </p>
+  <p>Sobre você: <%= @user.note %> </p>
+  <% if @user.work %>
+  <p> Estou trabalhando no momento. </p>
+  <% else %>
+  <p> Estou procurando emprego.</p>
+  <% end %>
+  <%= link_to "Editar Perfil", edit_user_path(@user), class: "btn btn-primary btn-sm btn-block" %>
+</div>
