@@ -5,3 +5,17 @@
   <h3>Obrigado a todos que se cadastraram! Mande um email pra mim se vc tiver alguma sugestão!</h3>
   <h3>Não sabia que tinha tanta gente cadastrada, vou me empenhar em desenvolver o quanto antes essa aplicação!</h3>
 </div>
+
+<div class="text-center">
+<h1> Obrigado a todos os cadastros! </h1>
+</div>
+
+<div class="container p-5">
+  <ul class="list-group">
+    <% @users.order(:name).each do |user| %>
+    <li class="list-group-item text-center">
+      <%= user.name %> / <%= user.email.gsub(/.{0,4}@/, '####@') %>
+    </li>
+    <% end %>
+  </ul>
+</div>

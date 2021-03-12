@@ -1,0 +1,13 @@
+<%= simple_form_for(user) do |f| %>
+  <%= f.input :name, label: 'Nome Completo' %>
+  <%= f.input :gender, label: 'Sexo' %>
+  <%= f.input :age, label: 'Idade' %>
+  <%= f.input :kind, label: 'Tipo de Usuário' %>
+  <%= f.input :address, label: 'Endereço' %>
+  <%= f.input :phone, label: 'Telefone' %>
+  <%= f.input :prefecture, label: 'Prefeitura' %>
+  <%= f.input :nihongo %>
+  <%= f.input :note, label: 'Sobre você' %>
+  <%= f.input :work, label: 'Estou trabalhando!' %>
+  <%= f.submit user.persisted? ? 'Editar' : 'Criar', class: "btn btn-primary w-100" %>
+<% end %>
