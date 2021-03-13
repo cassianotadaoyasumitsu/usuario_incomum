@@ -1,0 +1,15 @@
+<%= simple_form_for [user, post] do |f| %>
+<%= f.input :title, label: 'Seu nome:' %>
+
+
+
+<%= f.input :contact, label: 'Título:' %>
+
+
+
+<%= f.input :note, label: 'Mensagem:' %>
+<%= f.submit post.persisted? ? 'Editar' : 'Criar', class: 'btn btn-primary w-100' %>
+<% end %>
+
+
+
