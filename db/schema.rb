@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_03_13_113553) do
     t.string "phone"
     t.string "prefecture"
     t.string "nihongo"
-    t.text "note"
+    t.string "note"
     t.boolean "work"
     t.string "extra"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
