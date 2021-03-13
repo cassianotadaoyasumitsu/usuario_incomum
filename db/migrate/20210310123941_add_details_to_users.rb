@@ -8,7 +8,7 @@ class AddDetailsToUsers < ActiveRecord::Migration[6.0]
     add_column :users, :phone, :string
     add_column :users, :prefecture, :string
     add_column :users, :nihongo, :string
-    add_column :users, :note, :string
+    add_column :users, :note, :text
     add_column :users, :work, :boolean
     add_column :users, :extra, :string
   end

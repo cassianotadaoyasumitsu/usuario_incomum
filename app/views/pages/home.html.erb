@@ -1,16 +1,39 @@
  <%= render 'shared/navbar' %>
- <div class="text-center p-5">
-  <h1>Em desenvolvimento para a comunidade brasileira no Japão!</h1>
-  <h1>In development for the Brazilian community in Japan!</h1>
-  <h3>Obrigado a todos que se cadastraram! Mande um email pra mim se vc tiver alguma sugestão!</h3>
-  <h3>Não sabia que tinha tanta gente cadastrada, vou me empenhar em desenvolver o quanto antes essa aplicação!</h3>
+ <div class="container p-5 mt-5 mb-5">
+
+   <div class="text-center">
+    <h1>Em desenvolvimento para a comunidade brasileira no Japão!</h1>
+    <h1>In development for the Brazilian community in Japan!</h1>
+    <p>Obrigado a todos que se cadastraram! Mande um email para contato@usuarioincomum.com se vc tiver alguma sugestão!</p>
+    <p>Deixe um recado para o Usuário Incomum. Clique em 'Posts'</p>
+  </div>
+
+
+  <div class="row justify-content-around">
+    <% @posts.each do |post| %>
+    <div class="card m-3" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= post.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= post.contact %></h6>
+        <p class="card-text"><%= post.note %></p>
+        <!-- <a href="#" class="card-link"></a>
+        <a href="#" class="card-link">Another link</a> -->
+        <%= link_to "Apagar", post_path(post),
+        method: :delete,
+        data: { confirm: 'Tem certeza?' },
+        class: 'btn btn-danger btn-sm' %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
 </div>
 
-<div class="text-center">
-  <h1> Obrigado a todos os cadastros! <%= User.count %> Usuários! </h1>
+<div class="footer">
+  <p> <%= pluralize(User.count, 'Usuário') %> </p>
 </div>
 
-<div class="container p-5">
+<!-- <div class="container p-5">
   <ul class="list-group">
     <% @users.order(:name).each do |user| %>
     <li class="list-group-item text-center">
@@ -18,4 +41,4 @@
     </li>
     <% end %>
   </ul>
-</div>
+</div> -->
