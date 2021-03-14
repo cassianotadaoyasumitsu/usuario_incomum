@@ -13,11 +13,22 @@ body {
     margin-top: 64px;
 }
 
-h1 {
+h1, h2 {
   font-family: 'Frijole', cursive;
   color: rgb(93, 28, 139);
 }
 
 p {
   color: black;
+}
+
+
+@media(max-width:567px) {
+  h1 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 12px;
+  }
 }
