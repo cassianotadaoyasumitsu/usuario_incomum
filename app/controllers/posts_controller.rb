@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = @user
-    if Post.all.size >= 1
+    if current_user.posts.all.size >= 1
       redirect_to authenticated_root_path, notice: 'Você não pode criar mais de 1 post.'
     elsif @post.save
       redirect_to authenticated_root_path
