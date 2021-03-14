@@ -17,21 +17,24 @@
         <h6 class="card-subtitle mb-2 text-muted"><%= post.contact %></h6>
         <p class="card-text"><%= simple_format post.note %></p>
         <!-- <a href="#" class="card-link"></a>
-        <a href="#" class="card-link">Another link</a> -->
-        <%= link_to "Apagar", post_path(post),
-        method: :delete,
-        data: { confirm: 'Tem certeza?' },
-        class: 'btn btn-danger btn-sm' %>
+          <a href="#" class="card-link">Another link</a> -->
+          <% if current_user.id == post.user_id %>
+          <%= link_to "Apagar", post_path(post),
+          method: :delete,
+          data: { confirm: 'Tem certeza?' },
+          class: 'btn btn-danger btn-sm' %>
+          <% else %>
+          <% end %>
+        </div>
       </div>
+      <% end %>
     </div>
-    <% end %>
+
   </div>
 
-</div>
-
-<div class="footer">
-  <p> <%= pluralize(User.count, 'Usuário') %> </p>
-</div>
+  <div class="footer">
+    <p> <%= pluralize(User.count, 'Usuário') %> </p>
+  </div>
 
 <!-- <div class="container p-5">
   <ul class="list-group">

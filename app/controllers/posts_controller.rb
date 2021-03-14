@@ -37,9 +37,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to authenticated_root_path
+      @post = Post.find(params[:id])
+      @post.destroy
+      redirect_to authenticated_root_path
   end
 
   private
