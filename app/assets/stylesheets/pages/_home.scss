@@ -13,22 +13,27 @@ body {
     margin-top: 64px;
 }
 
-h1, h2 {
+h1 {
   font-family: 'Frijole', cursive;
   color: rgb(93, 28, 139);
 }
 
-p {
+.fonts {
+  font-family: 'Frijole', cursive;
+  color: rgb(93, 28, 139);
+}
+
+.pes {
   color: black;
 }
 
 
 @media(max-width:567px) {
-  h1 {
+  .fonts {
     font-size: 18px;
   }
 
-  p {
+  .pes {
     font-size: 12px;
   }
 }
