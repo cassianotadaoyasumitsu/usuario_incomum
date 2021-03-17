@@ -7,7 +7,7 @@
   <p>Endereço: <%= @user.address %> </p>
   <p>Telefone: <%= @user.phone %> </p>
   <p>Prefeitura: <%= @user.prefecture %> </p>
-  <p>Nihongo <%= @user.nihongo %> </p>
+  <p>Nihongo: <%= @user.nihongo %> </p>
   <p>Sobre você: <%= @user.note %> </p>
   <% if @user.work %>
   <p> Estou trabalhando no momento. </p>
@@ -15,4 +15,5 @@
   <p> Estou procurando emprego.</p>
   <% end %>
   <%= link_to "Editar Perfil", edit_user_path(@user), class: "btn btn-primary btn-sm btn-block" %>
+  <%= link_to "Apagar Conta", user_path(current_user), class: 'btn btn-danger btn-sm btn-block', method: :delete, data: { confirm: 'Você tem certeza? Isso apagara sua conta!' } %>
 </div>
