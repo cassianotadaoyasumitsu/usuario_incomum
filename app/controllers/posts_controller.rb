@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_user, except: [:destroy, :show, :edit, :update]
+  before_action :find_user, except: [:destroy, :show, :edit, :update, :index]
 
   def index
     @posts = Post.all

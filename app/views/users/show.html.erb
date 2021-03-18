@@ -1,4 +1,37 @@
 <%= render 'shared/navbar' %>
+
+<% if current_user.kind == nil || current_user.kind == "" %>
+
+<div class="container p-5 mt-5 mb-5 text-center">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Escolha seu tipo de Usuário
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Escolha seu tipo de Usuário</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <%= simple_form_for @user do |f| %>
+        <div class="modal-body">
+         <%= f.input :kind, label: 'Tipo de Usuário', as: :radio_buttons, collection: User::KIND %>
+       </div>
+       <div class="modal-footer">
+        <%= f.submit 'Salvar', class: "btn btn-primary w-100" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+
+<% else %>
+
 <div class="container p-5 mt-5 mb-5">
   <p>Nome: <%= @user.name %> </p>
   <p>Sexo: <%= @user.gender %> </p>
@@ -17,3 +50,5 @@
   <%= link_to "Editar Perfil", edit_user_path(@user), class: "btn btn-primary btn-sm btn-block" %>
   <%= link_to "Apagar Conta", user_path(current_user), class: 'btn btn-danger btn-sm btn-block', method: :delete, data: { confirm: 'Você tem certeza? Isso apagara sua conta!' } %>
 </div>
+
+<% end %>
