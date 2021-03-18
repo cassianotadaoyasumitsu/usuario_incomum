@@ -1,12 +1,23 @@
+<% if current_user.kind == "Usuário" %>
 <%= simple_form_for(user) do |f| %>
-  <%= f.input :name, label: 'Nome Completo' %>
-  <%= f.input :gender, label: 'Sexo' %>
-  <%= f.input :age, label: 'Idade' %>
-  <%= f.input :address, label: 'Endereço' %>
-  <%= f.input :phone, label: 'Telefone' %>
-  <%= f.input :prefecture, label: 'Prefeitura' %>
-  <%= f.input :nihongo %>
-  <%= f.input :note, label: 'Sobre você' %>
-  <%= f.input :work, label: 'Estou trabalhando!' %>
-  <%= f.submit user.persisted? ? 'Editar' : 'Criar', class: "btn btn-primary w-100" %>
+<%= f.input :name, label: 'Nome Completo' %>
+<%= f.input :gender, label: 'Sexo' %>
+<%= f.input :age, label: 'Idade' %>
+<%= f.input :prefecture, label: 'Prefeitura' %>
+<%= f.input :address, label: 'Endereço' %>
+<%= f.input :phone, label: 'Telefone' %>
+<%= f.input :nihongo %>
+<%= f.input :note, label: 'Sobre você' %>
+<%= f.input :work, label: 'Estou trabalhando!' %>
+<%= f.submit user.persisted? ? 'Salvar' : 'Criar', class: "btn btn-primary w-100" %>
+<% end %>
+<% else current_user.kind == "Empreiteira" %>
+<%= simple_form_for(user) do |f| %>
+<%= f.input :name, label: 'Empreiteira' %>
+<%= f.input :phone, label: 'Telefone' %>
+<%= f.input :prefecture, label: 'Prefeitura' %>
+<%= f.input :address, label: 'Endereço' %>
+<%= f.input :note, label: 'Sobre a empreiteira' %>
+<%= f.submit user.persisted? ? 'Salvar' : 'Criar', class: "btn btn-primary w-100" %>
+<% end %>
 <% end %>

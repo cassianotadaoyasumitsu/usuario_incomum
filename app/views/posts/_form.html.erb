@@ -1,14 +1,23 @@
+<% if current_user.kind == "Usuário" %>
 <%= simple_form_for [user, post] do |f| %>
 <%= f.input :title, label: 'Seu nome:' %>
-
-
-
 <%= f.input :contact, label: 'Título:' %>
-
-
-
 <%= f.input :note, label: 'Mensagem:' %>
 <%= f.submit post.persisted? ? 'Editar' : 'Criar', class: 'btn btn-primary w-100' %>
+<% end %>
+<% elsif current_user.kind == "Empreiteira" %>
+<%= simple_form_for [user, post] do |f| %>
+<%= f.input :title, label: 'Nome da vaga' %>
+<%= f.input :service, label: 'Tipo de serviço' %>
+<%= f.input :description, label: 'Descrição do trabalho' %>
+<%= f.input :address, label: 'Local do trabalho' %>
+<%= f.input :value, label: 'Salário de... até...' %>
+<%= f.input :company, label: 'Empreiteira' %>
+<%= f.input :contact, label: 'Responsável' %>
+<%= f.input :phone, label: 'Telefone de contato' %>
+<%= f.input :note, label: 'Outras informações' %>
+<%= f.submit post.persisted? ? 'Editar' : 'Criar', class: 'btn btn-primary w-100' %>
+<% end %>
 <% end %>
 
 
