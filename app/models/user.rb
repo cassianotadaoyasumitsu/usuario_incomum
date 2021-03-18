@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable,
   :recoverable, :rememberable, :validatable
 
+  KIND = ["Usuário", "Empreiteira", "Serviços"]
+
   has_many :posts, dependent: :destroy
 
 end
