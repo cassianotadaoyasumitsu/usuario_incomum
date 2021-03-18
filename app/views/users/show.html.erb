@@ -18,7 +18,7 @@
           </button>
         </div>
         <%= simple_form_for @user do |f| %>
-        <div class="modal-body">
+        <div class="modal-body text-left">
          <%= f.input :kind, label: 'Tipo de Usuário', as: :radio_buttons, collection: User::KIND %>
        </div>
        <div class="modal-footer">
@@ -30,7 +30,7 @@
 </div>
 </div>
 
-<% else %>
+<% elsif current_user.kind == "Usuário" %>
 
 <div class="container p-5 mt-5 mb-5">
   <p>Nome: <%= @user.name %> </p>
@@ -47,6 +47,18 @@
   <% else %>
   <p> Estou procurando emprego.</p>
   <% end %>
+  <%= link_to "Editar Perfil", edit_user_path(@user), class: "btn btn-primary btn-sm btn-block" %>
+  <%= link_to "Apagar Conta", user_path(current_user), class: 'btn btn-danger btn-sm btn-block', method: :delete, data: { confirm: 'Você tem certeza? Isso apagara sua conta!' } %>
+</div>
+
+<% else %>
+
+<div class="container p-5 mt-5 mb-5">
+  <p>Nome da Empreiteira: <%= @user.name %> </p>
+  <p>Telefone: <%= @user.phone %> </p>
+  <p>Prefeitura: <%= @user.prefecture %> </p>
+  <p>Endereço: <%= @user.address %> </p>
+  <p>Sobre a empreiteira: <%= @user.note %> </p>
   <%= link_to "Editar Perfil", edit_user_path(@user), class: "btn btn-primary btn-sm btn-block" %>
   <%= link_to "Apagar Conta", user_path(current_user), class: 'btn btn-danger btn-sm btn-block', method: :delete, data: { confirm: 'Você tem certeza? Isso apagara sua conta!' } %>
 </div>
