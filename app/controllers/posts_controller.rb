@@ -15,12 +15,22 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = @user
-    if current_user.posts.all.size >= 1
-      redirect_to authenticated_root_path, notice: 'Você não pode criar mais de 1 post.'
-    elsif @post.save
-      redirect_to authenticated_root_path
+    if current_user.kind == "Usuário"
+      if current_user.posts.all.size >= 1
+        redirect_to authenticated_root_path, notice: 'Você não pode criar mais de 1 post.'
+      elsif @post.save
+        redirect_to authenticated_root_path
+      else
+        render :new
+      end
     else
-      render :new
+      if current_user.posts.all.size >= 10
+        redirect_to authenticated_root_path, notice: 'Você não pode criar mais posts.'
+      elsif @post.save
+        redirect_to authenticated_root_path
+      else
+        render :new
+      end
     end
   end
 
@@ -37,9 +47,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-      @post = Post.find(params[:id])
-      @post.destroy
-      redirect_to authenticated_root_path
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to authenticated_root_path
   end
 
   private
