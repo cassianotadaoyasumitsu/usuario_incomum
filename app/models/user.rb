@@ -6,8 +6,6 @@ class User < ApplicationRecord
 
   KIND = ["Usuário", "Empreiteira"]
 
-  has_many :posts, dependent: :destroy
-
   PREFECTURE = ["Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata", "Fukushima",
     "Ibaraki", "Tochigi", "Gunma", "Saitama", "Chiba", "Tokyo", "Kanagawa", "Niigata",
     "Toyama", "Ishikawa", "Fukui", "Yamanashi", "Nagano", "Gifu", "Shizuoka", "Aichi", "Mie",
@@ -15,6 +13,6 @@ class User < ApplicationRecord
     "Hiroshima", "Yamaguchi", "Tokushima", "Kagawa", "Ehime", "Kochi", "Fukuoka", "Saga",
     "Nagasaki", "Kumamoto", "Oita", "Miyazaki", "Kagoshima", "Okinawa"]
 
-  validates :prefecture, presence: true
+  has_many :posts, dependent: :destroy
 
 end
