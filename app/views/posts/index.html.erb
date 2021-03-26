@@ -8,11 +8,12 @@
         <h6 class="card-subtitle mb-2 text-muted"><%= post.prefecture %></h6>
         <p class="card-text"><%= simple_format post.description %></p>
         <p class="card-text">¥ <%= post.value %></p>
+        <%= link_to "Mais", post_path(post), class: "btn btn-outline-primary btn-sm w-50" %>
         <% if current_user.id == post.user_id %>
         <%= link_to "Apagar", post_path(post),
         method: :delete,
         data: { confirm: 'Tem certeza?' },
-        class: 'btn btn-danger btn-sm' %>
+        class: 'btn btn-outline-danger btn-sm' %>
         <% else %>
         <% end %>
       </div>
