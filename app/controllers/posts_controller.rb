@@ -28,7 +28,7 @@ class PostsController < ApplicationController
       if current_user.posts.all.size >= 10
         redirect_to authenticated_root_path, notice: 'Você não pode criar mais posts.'
       elsif @post.save
-        redirect_to authenticated_root_path
+        redirect_to posts_path
       else
         render :new
       end
@@ -40,6 +40,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to posts_path
     else

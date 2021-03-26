@@ -6,6 +6,27 @@
     <h1 class="fonts">Com o objetivo de ajudar as pessoas a encontrar um emprego.</h1>
     <p class="pes">Obrigado a todos que se cadastraram! Mande um email para contato@usuarioincomum.com se vc tiver alguma sugestão!</p>
   </div>
+
+  <div class="row justify-content-around">
+    <% @posts.shuffle.each do |post| %>
+    <% if post.company == nil %>
+    <div class="card m-3" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= post.title %></h5>
+        <p class="card-text"><%= post.contact %> <br> <%= simple_format post.note %></p>
+        <% if current_user.id == post.user_id %>
+        <%= link_to "Apagar", post_path(post),
+        method: :delete,
+        data: { confirm: 'Tem certeza?' },
+        class: 'btn btn-outline-danger btn-sm' %>
+        <% else %>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+
 </div>
 
 <div class="footer fixed-bottom">
