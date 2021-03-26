@@ -3,7 +3,7 @@
 <%= f.input :title, label: 'Seu nome:', placeholder: 'Ex: Cassiano' %>
 <%= f.input :contact, label: 'Título:', placeholder: 'Ex: Bom dia! 👽' %>
 <%= f.input :note, label: 'Mensagem:', placeholder: 'Ex: Seja bem vindo!' %>
-<%= f.submit post.persisted? ? 'Editar' : 'Criar', class: 'btn btn-primary w-100' %>
+<%= f.submit post.persisted? ? 'Editar' : 'Criar', class: 'btn btn-outline-primary w-100' %>
 <% end %>
 <% elsif current_user.kind == "Empreiteira" %>
 <%= simple_form_for [user, post] do |f| %>
@@ -18,7 +18,7 @@
 <%= f.input :contact, label: 'Responsável', placeholder: 'Ex: Cassiano' %>
 <%= f.input :phone, label: 'Telefone de contato', placeholder: ' Ex: 080 xxxx xxxx' %>
 <%= f.input :note, label: 'Outras informações', placeholder: 'Ex: Ajudamos na mudança Temos apartamentos Transporte gratuito Suporte na entrevista' %>
-<%= f.submit post.persisted? ? 'Editar' : 'Criar', class: 'btn btn-primary w-100' %>
+<%= f.submit post.persisted? ? 'Editar' : 'Criar', class: 'btn btn-outline-primary w-100' %>
 <% end %>
 <% end %>
 

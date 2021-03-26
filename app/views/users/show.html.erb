@@ -36,7 +36,6 @@
   <p>Nome: <%= @user.name %> </p>
   <p>Sexo: <%= @user.gender %> </p>
   <p>Idade: <%= @user.age %> </p>
-  <p>Tipo de Usuário: <%= @user.kind %> </p>
   <p>Endereço: <%= @user.address %> </p>
   <p>Telefone: <%= @user.phone %> </p>
   <p>Prefeitura: <%= @user.prefecture %> </p>
@@ -47,8 +46,8 @@
   <% else %>
   <p> Estou procurando emprego.</p>
   <% end %>
-  <%= link_to "Editar Perfil", edit_user_path(@user), class: "btn btn-primary btn-sm btn-block" %>
-  <%= link_to "Apagar Conta", user_path(current_user), class: 'btn btn-danger btn-sm btn-block', method: :delete, data: { confirm: 'Você tem certeza? Isso apagara sua conta!' } %>
+  <%= link_to "Editar Perfil", edit_user_path(@user), class: "btn btn-outline-primary btn-sm btn-block" %>
+  <%= link_to "Apagar Conta", user_path(current_user), class: 'btn btn-outline-danger btn-sm btn-block', method: :delete, data: { confirm: 'Você tem certeza? Isso apagara sua conta!' } %>
 </div>
 
 <% else %>
@@ -59,8 +58,8 @@
   <p>Prefeitura: <%= @user.prefecture %> </p>
   <p>Endereço: <%= @user.address %> </p>
   <p>Sobre a empreiteira: <%= @user.note %> </p>
-  <%= link_to "Editar Perfil", edit_user_path(@user), class: "btn btn-primary btn-sm btn-block" %>
-  <%= link_to "Apagar Conta", user_path(current_user), class: 'btn btn-danger btn-sm btn-block', method: :delete, data: { confirm: 'Você tem certeza? Isso apagara sua conta!' } %>
+  <%= link_to "Editar Perfil", edit_user_path(@user), class: "btn btn-outline-primary btn-sm btn-block" %>
+  <%= link_to "Apagar Conta", user_path(current_user), class: 'btn btn-outline-danger btn-sm btn-block', method: :delete, data: { confirm: 'Você tem certeza? Isso apagara sua conta!' } %>
 </div>
 
 <% end %>
