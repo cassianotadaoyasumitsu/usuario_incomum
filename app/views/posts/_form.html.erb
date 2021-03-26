@@ -1,22 +1,23 @@
 <% if current_user.kind == "Usuário" %>
 <%= simple_form_for [user, post] do |f| %>
-<%= f.input :title, label: 'Seu nome:' %>
-<%= f.input :contact, label: 'Título:' %>
-<%= f.input :note, label: 'Mensagem:' %>
+<%= f.input :title, label: 'Seu nome:', placeholder: 'Ex: Cassiano' %>
+<%= f.input :contact, label: 'Título:', placeholder: 'Ex: Bom dia! 👽' %>
+<%= f.input :note, label: 'Mensagem:', placeholder: 'Ex: Seja bem vindo!' %>
 <%= f.submit post.persisted? ? 'Editar' : 'Criar', class: 'btn btn-primary w-100' %>
 <% end %>
 <% elsif current_user.kind == "Empreiteira" %>
 <%= simple_form_for [user, post] do |f| %>
-<%= f.input :title, label: 'Nome da vaga' %>
-<%= f.input :service, label: 'Tipo de serviço' %>
-<%= f.input :description, label: 'Descrição do trabalho' %>
-<%= f.input :prefecture, label: 'Prefeitura' %>
-<%= f.input :address, label: 'Local do trabalho' %>
-<%= f.input :value, label: 'Salário de... até...' %>
-<%= f.input :company, label: 'Empreiteira' %>
-<%= f.input :contact, label: 'Responsável' %>
-<%= f.input :phone, label: 'Telefone de contato' %>
-<%= f.input :note, label: 'Outras informações' %>
+<%= f.input :title, label: 'Nome da vaga', placeholder: 'Ex: Montagem de Motores Elétricos' %>
+<%= f.input :service, label: 'Conhecimento da língua Japonesa.', collection: Post::NIHONGO %>
+<%= f.input :turn, label: 'Leitura e Escrita da língua Japonesa.', collection: Post::LEITURA %>
+<%= f.input :description, label: 'Descrição do trabalho', placeholder: 'Ex: Linha de montagem /ou Clean Room' %>
+<%= f.input :prefecture, label: 'Prefeitura', collection: Post::PREFECTURE %>
+<%= f.input :address, label: 'Local do trabalho / Endereço', placeholder: 'Ex: Nome da Fábrica /ou Cidade/Endereço' %>
+<%= f.input :value, label: 'Salário de... até...', placeholder: 'Ex: 1250 + 25% horas extras /ou 1200 ~ 1250' %>
+<%= f.input :company, label: 'Empreiteira', placeholder: 'Ex: Usuário Incomum' %>
+<%= f.input :contact, label: 'Responsável', placeholder: 'Ex: Cassiano' %>
+<%= f.input :phone, label: 'Telefone de contato', placeholder: ' Ex: 080 xxxx xxxx' %>
+<%= f.input :note, label: 'Outras informações', placeholder: 'Ex: Ajudamos na mudança Temos apartamentos Transporte gratuito Suporte na entrevista' %>
 <%= f.submit post.persisted? ? 'Editar' : 'Criar', class: 'btn btn-primary w-100' %>
 <% end %>
 <% end %>

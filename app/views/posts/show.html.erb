@@ -1,3 +1,4 @@
+<%= render 'shared/navbar' %>
 <div class="container p-5 mt-5 mb-5">
   <div class="card text-center">
     <div class="card-header">
@@ -6,21 +7,26 @@
     <div class="card-body">
       <h5 class="card-title"><%= @post.title %></h5>
       <p class="card-text">
-        <%= @post.service %><br>
-        <%= @post.description %><br>
+        Nihongo: <%= @post.service %><br>
+        Leitura e Escrita: <%= @post.turn %><br><br>
+        Descrição: <%= @post.description %><br><br>
         Endereço: <%= @post.prefecture %><br>
-        <%= @post.address %><br>
-        Valor por hora ¥ <%= @post.value %><br>
+        <%= @post.address %><br><br>
+        Valor por hora ¥ <%= @post.value %><br><br>
         Contato: <%= @post.contact %><br>
         Telefone: <%= @post.phone %><br>
-        Outras informações: <%= @post.note %>
+        <%= simple_format @post.note %>
       </p>
       <%= link_to "Voltar", posts_path, class: "btn btn-outline-primary" %>
+      <% if current_user.id == @post.user_id %>
+      <%= link_to "Editar", edit_post_path(@post), class: "btn btn-outline-info" %>
+      <% else %>
+      <% end %>
     </div>
     <div class="card-footer text-muted">
       <p class="card-text">
        Postado em <%= @post.created_at.strftime("%F") %>
-      </p>
-    </div>
-  </div>
+     </p>
+   </div>
+ </div>
 </div>
