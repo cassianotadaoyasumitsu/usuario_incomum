@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  validates_with GoodnessValidator
   belongs_to :user
 
   NIHONGO = ["Não é necessário", "10% ~ 30% (Básico)", "31% ~ 60% (Intermediário)", "61% ~ 100% (Avançado)"]
@@ -10,8 +11,8 @@ class Post < ApplicationRecord
     "Hiroshima", "Yamaguchi", "Tokushima", "Kagawa", "Ehime", "Kochi", "Fukuoka", "Saga",
     "Nagasaki", "Kumamoto", "Oita", "Miyazaki", "Kagoshima", "Okinawa"]
 
-  LEITURA = ["Não é necessário", "10% ~ 30% (Básico)", "31% ~ 60% (Intermediário)", "61% ~ 100% (Avançado)"]
+    LEITURA = ["Não é necessário", "10% ~ 30% (Básico)", "31% ~ 60% (Intermediário)", "61% ~ 100% (Avançado)"]
 
-  validates :title, :service, :turn, :description, :prefecture, :address,
-  :value, :company, :contact, :phone, presence: true
-  end
+  # validates :title, :service, :turn, :description, :prefecture, :address,
+  # :value, :company, :contact, :phone, presence: true
+end

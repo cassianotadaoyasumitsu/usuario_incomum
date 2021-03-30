@@ -15,7 +15,7 @@
 <%= simple_form_for(user) do |f| %>
 <%= f.input :name, label: 'Empreiteira' %>
 <%= f.input :phone, label: 'Telefone' %>
-<%= f.input :prefecture, label: 'Prefeitura' %>
+<%= f.input :prefecture, label: 'Prefeitura', collection: User::PREFECTURE %>
 <%= f.input :address, label: 'Endereço' %>
 <%= f.input :note, label: 'Sobre a empreiteira' %>
 <%= f.submit user.persisted? ? 'Salvar' : 'Criar', class: "btn btn-primary w-100" %>
