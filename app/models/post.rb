@@ -1,5 +1,4 @@
 class Post < ApplicationRecord
-  validates_with GoodnessValidator
   belongs_to :user
 
   NIHONGO = ["Não é necessário", "10% ~ 30% (Básico)", "31% ~ 60% (Intermediário)", "61% ~ 100% (Avançado)"]
