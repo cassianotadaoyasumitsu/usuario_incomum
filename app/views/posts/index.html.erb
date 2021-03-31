@@ -10,11 +10,14 @@
         <p class="card-text"><%= simple_format post.description %></p>
         <p class="card-text">¥ <%= post.value %></p>
         <%= link_to "Mais", post_path(post), class: "btn btn-outline-primary btn-sm w-50" %>
-        <% if current_user.id == post.user_id %>
-        <%= link_to "Apagar", post_path(post),
-        method: :delete,
-        data: { confirm: 'Tem certeza?' },
-        class: 'btn btn-outline-danger btn-sm' %>
+        <% if user_signed_in? %>
+          <% if current_user.id == post.user_id %>
+            <%= link_to "Apagar", post_path(post),
+            method: :delete,
+            data: { confirm: 'Tem certeza?' },
+            class: 'btn btn-outline-danger btn-sm' %>
+          <% else %>
+          <%end%>
         <% else %>
         <% end %>
       </div>

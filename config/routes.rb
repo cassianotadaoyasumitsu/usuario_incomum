@@ -6,12 +6,13 @@ Rails.application.routes.draw do
     authenticated :user do
       root 'pages#home', as: :authenticated_root
       resources :users do
-        resources :posts, only: [:new, :create, :index]
+        resources :posts, only: [:new, :create]
       end
     end
 
     unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
+      root 'pages#home', as: :unauthenticated_root
+      resources :posts, only: [:index]
     end
   end
   resources :posts, only: [:show, :edit, :update, :destroy, :index]
