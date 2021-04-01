@@ -17,11 +17,13 @@
         Telefone: <%= @post.phone %><br>
         <%= simple_format @post.note %>
       </p>
-      <%= link_to "Voltar", posts_path, class: "btn btn-outline-primary" %>
+      <div class="d-flex justify-content-around">
+      <%= link_to "🔙", posts_path, class: "text-decoration-none" %>
       <% if current_user.id == @post.user_id %>
-      <%= link_to "Editar", edit_post_path(@post), class: "btn btn-outline-info" %>
+      <%= link_to "🖊", edit_post_path(@post), class: "text-decoration-none" %>
       <% else %>
       <% end %>
+      </div>
     </div>
     <div class="card-footer text-muted">
       <p class="card-text">
