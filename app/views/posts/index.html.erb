@@ -1,25 +1,29 @@
 <%= render 'shared/navbar' %>
+
 <div class="container p-5 mt-5 mb-5">
   <div class="row justify-content-around">
     <% @posts.shuffle.each do |post| %>
-    <% if post.company %>
-    <div class="card m-3" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;">
+      <%= link_to post_path(post), class: "text-decoration-none" do %>
+      <div class="card-header">
+        <%= post.title %>
+      </div>
       <div class="card-body">
-        <h5 class="card-title"><%= post.title %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= post.prefecture %></h6>
+        <h5 class="card-title"><%= post.prefecture %></h5>
         <p class="card-text"><%= simple_format post.description %></p>
         <p class="card-text">¥ <%= post.value %></p>
-        <%= link_to "Mais", post_path(post), class: "btn btn-outline-primary btn-sm w-50" %>
+      <% end %>
+      </div>
+      <div class="d-flex justify-content-between card-footer text-muted ">
+        <%= social_share_button_tag('Share to Facebook', :url => post_path(post), desc: post.title) %>
         <% if current_user.id == post.user_id %>
-        <%= link_to "Apagar", post_path(post),
+        <%= link_to "🗑", post_path(post),
         method: :delete,
-        data: { confirm: 'Tem certeza?' },
-        class: 'btn btn-outline-danger btn-sm' %>
+        data: { confirm: 'Tem certeza?' } %>
         <% else %>
         <% end %>
       </div>
     </div>
-    <% end %>
     <% end %>
   </div>
 </div>

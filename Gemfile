@@ -33,6 +33,8 @@ gem 'rails_admin', '~> 2.0'
 
 gem "serviceworker-rails"
 
+gem 'social-share-button'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
