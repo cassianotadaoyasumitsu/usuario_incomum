@@ -17,22 +17,18 @@
         Telefone: <%= @post.phone %><br>
         <%= simple_format @post.note %>
       </p>
-      <%= link_to "Voltar", posts_path, class: "btn btn-outline-primary" %>
+      <div class="d-flex justify-content-around">
+      <%= link_to "🔙", posts_path, class: "text-decoration-none" %>
       <% if current_user.id == @post.user_id %>
-      <%= link_to "Editar", edit_post_path(@post), class: "btn btn-outline-info" %>
+      <%= link_to "🖊", edit_post_path(@post), class: "text-decoration-none" %>
       <% else %>
       <% end %>
+      </div>
     </div>
     <div class="card-footer text-muted">
       <p class="card-text">
        Postado em <%= @post.created_at.strftime("%F") %>
      </p>
-
-                <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                <div class="addthis_inline_share_toolbox"></div>
-
    </div>
  </div>
 </div>
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-605df3add1f6a00c"></script>
