@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  acts_as_punchable
 
   NIHONGO = ["Não é necessário", "10% ~ 30% (Básico)", "31% ~ 60% (Intermediário)", "61% ~ 100% (Avançado)"]
 
