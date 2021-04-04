@@ -27,7 +27,8 @@
     </div>
     <div class="card-footer text-muted">
       <p class="card-text">
-       Postado em <%= @post.created_at.strftime("%F") %>
+       Postado em <%= @post.created_at.strftime("%F") %> <br>
+       Este anúncio já tem <%= @post.hits %> visualizações.
      </p>
    </div>
  </div>
