@@ -14,6 +14,12 @@
         <%= f.error_notification %>
 
         <div class="d-flex flex-column pb-3">
+          <%= f.input :prefecture, collection: User::PREFECTURE,
+          required: true,
+          autofocus: true,
+          input_html: { autocomplete: "prefecture" }%>
+        </div>
+        <div class="d-flex flex-column pb-3">
           <%= f.input :email,
           required: true,
           autofocus: true,
