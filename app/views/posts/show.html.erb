@@ -21,10 +21,15 @@
         Telefone: <%= @post.phone %><br>
         <%= simple_format @post.note %>
       </p>
+      <% if user_signed_in? %>
       <div class="d-flex justify-content-around">
         <% if current_user.id == @post.user_id %>
-        <%= link_to "🖊", edit_post_path(@post), class: "text-decoration-none" %>
+        <%= link_to "Editar 🖊", edit_post_path(@post), class: "text-decoration-none" %>
+        <%= link_to "Apagar 🗑", post_path(@post), class: "text-decoration-none",
+        method: :delete,
+        data: { confirm: 'Tem certeza?' } %>
         <% else %>
+        <% end %>
         <% end %>
       </div>
     </div>

@@ -14,17 +14,8 @@
         <p class="card-text">¥ <%= post.value %></p>
       <% end %>
       </div>
-      <div class="d-flex justify-content-between card-footer text-muted ">
-        Postado em <%= post.created_at.strftime("%F") %> <br>
-        <% if user_signed_in? %>
-          <% if current_user.id == post.user_id %>
-          <%= link_to "🗑", post_path(post),
-          method: :delete,
-          data: { confirm: 'Tem certeza?' } %>
-          <% else %>
-          <%end%>
-        <% else %>
-        <% end %>
+      <div class="d-flex justify-content-center card-footer text-muted ">
+        <p>Postado em <%= post.created_at.strftime("%F") %> </p>
       </div>
     </div>
     <% end %>
