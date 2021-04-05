@@ -2,7 +2,11 @@
 <div class="container p-5 mt-5 mb-5">
   <div class="card text-center">
     <div class="card-header">
-      <h2> <%= @post.company %> </h2>
+      <div class="d-flex justify-content-between">
+        <%= link_to "🔙", posts_path, class: "text-decoration-none" %>
+        <h2> <%= @post.company %> </h2>
+        <p></p>
+      </div>
     </div>
     <div class="card-body">
       <h5 class="card-title"><%= @post.title %></h5>
@@ -17,20 +21,26 @@
         Telefone: <%= @post.phone %><br>
         <%= simple_format @post.note %>
       </p>
+      <% if user_signed_in? %>
       <div class="d-flex justify-content-around">
-      <%= link_to "🔙", posts_path, class: "text-decoration-none" %>
-      <% if current_user.id == @post.user_id %>
-      <%= link_to "🖊", edit_post_path(@post), class: "text-decoration-none" %>
-      <% else %>
-      <% end %>
+        <% if current_user.id == @post.user_id %>
+        <%= link_to "Editar 🖊", edit_post_path(@post), class: "text-decoration-none" %>
+        <%= link_to "Apagar 🗑", post_path(@post), class: "text-decoration-none",
+        method: :delete,
+        data: { confirm: 'Tem certeza?' } %>
+        <% else %>
+        <% end %>
+        <% end %>
       </div>
     </div>
     <div class="card-footer text-muted">
       <p class="card-text">
-       Postado em <%= @post.created_at.strftime("%F") %> <br>
-       Este anúncio já tem <%= @post.hits %> visualizações.
+       Este anúncio já tem <%= @post.hits %> visualizações. <br>
+       <div class="addthis_inline_share_toolbox"></div>
      </p>
    </div>
    <%= social_share_button_tag(@post.title) %>
  </div>
 </div>
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-605df3add1f6a00c"></script>
