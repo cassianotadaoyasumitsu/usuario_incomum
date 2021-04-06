@@ -1,16 +1,9 @@
 // Specific CSS for your home-page
-* {
-  margin: 0;
-  padding: 0;
-  border-box: box-sizing;
-}
-
-body {
-    background-color: rgb(53, 54, 58)
-}
-
-.container.bg-white.pb-5 {
-    margin-top: 64px;
+.banner {
+  background-size: cover;
+  background-position: center;
+  background: linear-gradient(180deg, rgba(255, 187, 240, 0.05) 0%, rgba(255, 163, 246, 0.05) 0.01%, rgba(233, 171, 255, 0.05) 35.94%, rgba(255, 255, 255, 0.05) 74.48%);
+  padding: 150px 80px;
 }
 
 h1 {

@@ -8,7 +8,7 @@ input {
 }
 
 @media(min-width:992px) {
-    img {
+    .login-logo {
         width: 500px;
         height: 500px
     }
@@ -29,7 +29,7 @@ input {
 }
 
 @media(max-width:991px) {
-    img {
+    .login-logo  {
         display: none
     }
 
@@ -44,12 +44,12 @@ input {
     }
 
     .container {
-        background-image: linear-gradient(to bottom, rgb(255, 255, 255) 80%, rgb(242, 242, 253), rgb(164, 164, 235))
+        background-image: linear-gradient(to bottom, rgb(255, 255, 255) 90%, rgb(242, 242, 253), rgb(164, 164, 235))
     }
 }
 
 @media(max-width:768px) {
-    img {
+    .login-logo  {
         display: none
     }
 
@@ -65,7 +65,7 @@ input {
 }
 
 @media(max-width:567px) {
-    img {
+    .login-logo {
         display: none
     }
 
