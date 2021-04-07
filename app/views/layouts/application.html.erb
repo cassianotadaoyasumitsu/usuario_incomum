@@ -28,7 +28,7 @@
 
 <body>
   <% if user_signed_in? %>
-    <%= render 'shared/navbar' %>
+    <%= render 'shared/login_navbar' %>
   <% else %>
     <%= render 'shared/public_navbar' %>
   <% end%>
@@ -42,8 +42,6 @@
   <div class="footer">
     <%= render 'shared/footer' %>
   </div>
-
-
     <%= javascript_pack_tag 'application' %>
 </body>
 </html>
