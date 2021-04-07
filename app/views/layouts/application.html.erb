@@ -27,13 +27,23 @@
 </head>
 
 <body>
-  <div class="container" data-behavior="vue-app">
+  <% if user_signed_in? %>
+    <%= render 'shared/navbar' %>
+  <% else %>
+    <%= render 'shared/public_navbar' %>
+  <% end%>
+
+  <div data-behavior="vue-app">
     <%= render 'shared/flashes' %>
 
     <%= yield %>
-
-
   </div>
+
+  <div class="footer">
+    <%= render 'shared/footer' %>
+  </div>
+
+
     <%= javascript_pack_tag 'application' %>
 </body>
 </html>

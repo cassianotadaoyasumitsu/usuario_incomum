@@ -1,11 +1,6 @@
- <%= render 'shared/navbar' %>
- <div class="container p-5 mt-5 mb-5">
-
-   <div class="text-center">
-    <h1 class="fonts">Desenvolvido para a comunidade brasileira no Japão!</h1>
-    <h1 class="fonts">Já somos <%= pluralize(User.count, 'Usuário') %></h1>
-    <p class="pes">Aplicação desenvolvida para agregar todas as vagas de emprego disponíveis no Japão.</p>
-    <p class="pes">Obrigado a todos que se cadastraram! Mande um email para contato@usuarioincomum.com se vc tiver alguma sugestão.</p>
+<div class="banner">
+  <div class="text-center">
+    <h1 class="fonts"><%= t('Find your Job here!')%></h1>
   </div>
 
   <div class="row justify-content-around">
@@ -31,5 +26,6 @@
     <% end %>
   </div>
 </div>
+
 
 
