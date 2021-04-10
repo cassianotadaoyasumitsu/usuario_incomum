@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-usuario">
-  <%= link_to "#", class: "small-logo" do %>
-    <%= image_tag "roxo.png" %>
+  <%= link_to unauthenticated_root_path, class: "small-logo" do %>
+  <%= image_tag "roxo.png" %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +19,8 @@
       <li class="nav-item">
 
       </li>
-      <li class="dropdown"> <%#d-none%>
+      <li class="dropdown">
+        <div class="btn-group dropleft"> <%#d-none%>
           <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #67008B">
             <i class="fas fa-globe" style="color: #67008B"></i>
           </a>
@@ -29,6 +30,7 @@
             <li><%= link_to '🇪🇸 Español', params.merge(locale: 'es').permit(:locale), class: "nav-link" %></li>
             <li><%= link_to '🇯🇵 日本語', params.merge(locale: 'ja').permit(:locale), class: "nav-link" %></li>
           </ul>
+        </div>
       </li>
     </ul>
   </div>
