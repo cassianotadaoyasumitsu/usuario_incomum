@@ -3,7 +3,12 @@ class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
-    @posts = Post.all
+    @search = params['search']
+    if @search.present?
+      @posts = Post.search_info("#{@search}")
+    else
+      @posts = Post.all
+    end
   end
 
   def show
