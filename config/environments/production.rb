@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "https://www.usuarioincomum.com" }
+  config.action_mailer.default_url_options = { host: "https://dashboard.heroku.com/apps/serene-badlands-37495" }
   # Settings specified here will take precedence over those in config/application.rb.
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
