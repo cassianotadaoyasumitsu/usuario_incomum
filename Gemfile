@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+#searchfeature
+gem 'pg_search', '~> 2.3.0'
 #vue server
 gem 'foreman', '~> 0.87.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
