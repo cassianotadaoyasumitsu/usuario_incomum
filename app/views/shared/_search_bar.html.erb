@@ -1,6 +1,6 @@
 <%= simple_form_for :search, url: posts_path, method: :get do |f| %>
 <div class="search-form-control form-group">
-  <input class="form-control string required" type="text" name="search" value="<%=@search%>" id="search" placeholder="Keyword" />
+  <input class="form-control string required w-100" type="text" name="search" value="<%=@search%>" id="search" placeholder="Keyword" />
   <button name="button" type="submit" value="submit"  class="btn btn-purple">
     <i class="fas fa-search"></i> Search
   </button>
