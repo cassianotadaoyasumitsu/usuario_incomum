@@ -14,6 +14,12 @@
       <%= f.error_notification %>
 
       <div class="d-flex flex-column pb-3">
+        <%= f.input :kind, label: 'Tipo de Usuário', as: :radio_buttons, collection: User::KIND,
+        required: true,
+        autofocus: true,
+        input_html: { autocomplete: "kind" }%>
+      </div>
+      <div class="d-flex flex-column pb-3">
         <%= f.input :prefecture, collection: User::PREFECTURE,
         required: true,
         autofocus: true,
