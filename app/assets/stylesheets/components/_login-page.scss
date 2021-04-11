@@ -3,10 +3,6 @@ input {
     outline: none
 }
 
-.container {
-    border-radius: 15px
-}
-
 @media(min-width:992px) {
     .login-logo {
         width: 500px;
@@ -21,10 +17,6 @@ input {
         width: 50px;
         left: 290px;
         top: -25px
-    }
-
-    .container {
-        background-image: linear-gradient(to bottom, rgb(255, 255, 255) 80%, rgb(242, 242, 253), rgb(164, 164, 235))
     }
 }
 
@@ -41,10 +33,6 @@ input {
         width: 50px;
         left: 100px;
         top: -25px
-    }
-
-    .container {
-        background-image: linear-gradient(to bottom, rgb(255, 255, 255) 90%, rgb(242, 242, 253), rgb(164, 164, 235))
     }
 }
 
@@ -67,11 +55,6 @@ input {
 @media(max-width:567px) {
     .login-logo {
         display: none
-    }
-
-    .container {
-        margin-left: 0px;
-        margin-top: 30px
     }
 
     #circle {

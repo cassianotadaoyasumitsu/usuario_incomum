@@ -1,14 +1,12 @@
 
 
 <% if current_user.kind == nil || current_user.kind == "" %>
-
-<div class="container p-5 mt-5 mb-5 text-center">
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     Escolha seu tipo de Usuário
   </button>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -28,11 +26,10 @@
     </div>
   </div>
 </div>
-</div>
+
 
 <% elsif current_user.kind == "Usuário" %>
 
-<div class="container p-5 mt-5 mb-5">
   <p>Nome: <%= @user.name %> </p>
   <p>Sexo: <%= @user.gender %> </p>
   <p>Idade: <%= @user.age %> </p>
@@ -48,11 +45,9 @@
   <% end %>
   <%= link_to "Editar Perfil", edit_user_path(@user), class: "btn btn-outline-primary btn-sm btn-block" %>
   <%= link_to "Apagar Conta", user_path(current_user), class: 'btn btn-outline-danger btn-sm btn-block', method: :delete, data: { confirm: 'Você tem certeza? Isso apagara sua conta!' } %>
-</div>
 
 <% else %>
 
-<div class="container p-5 mt-5 mb-5">
   <p>Nome da Empreiteira: <%= @user.name %> </p>
   <p>Telefone: <%= @user.phone %> </p>
   <p>Prefeitura: <%= @user.prefecture %> </p>
@@ -60,6 +55,5 @@
   <p>Sobre a empreiteira: <%= @user.note %> </p>
   <%= link_to "Editar Perfil", edit_user_path(@user), class: "btn btn-outline-primary btn-sm btn-block" %>
   <%= link_to "Apagar Conta", user_path(current_user), class: 'btn btn-outline-danger btn-sm btn-block', method: :delete, data: { confirm: 'Você tem certeza? Isso apagara sua conta!' } %>
-</div>
 
 <% end %>
