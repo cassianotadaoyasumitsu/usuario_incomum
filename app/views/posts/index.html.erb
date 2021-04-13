@@ -1,21 +1,52 @@
-<div class="content">
-  <div class="row justify-content-around">
-    <% @posts.shuffle.each do |post| %>
-    <div class="card text-center" style="width: 18rem;">
-      <%= link_to post_path(post), class: "text-decoration-none" do %>
-      <div class="card-header">
-        <%= post.title %>
+  <div class="sub-banner">
+    <%= render 'shared/sub_search_bar' %>
+  </div>
+
+  <div class ="container">
+  <div class="content">
+    <% if @search == "" %>
+    <h4><%= @posts.count %> <%= t('jobs posted here')%></h4>
+    <% else %>
+    <h4><%= @posts.count %> <%= t('jobs found for keyword:')%> <%= @search %></h4>
+    <% end %>
+
+    <% @posts.each do |post| %>
+      <div class="card-container">
+
+      <div class="card-banner">
+        <div class="card-company">
+            <h5><%= post.company %></h5>
+        </div>
       </div>
+
       <div class="card-body">
-        <h5 class="card-title"><%= post.prefecture %></h5>
-        <p class="card-text"><%= simple_format post.description %></p>
-        <p class="card-text">¥ <%= post.value %></p>
-        <% end %>
+        <div class="card-title">
+          <h3><%= post.title %></h3>
+        </div>
+        <div class="card-summary">
+          <%= link_to post_path(post), class: "text-decoration-none" do %>
+            <p><%= simple_format post.description %></p>
+            <p><%= post.value %></p>
+            <p><%= post.prefecture %></p>
+          <% end %>
+        </div>
+        <div class="card-tags">
+          <ul>
+            <li><a href="#">Tokyo</a></li>
+            <li><a href="#">Hotel</a></li>
+            <li><a href="#">Full-Time</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="d-flex justify-content-center card-footer text-muted ">
-        <p>Postado em <%= post.created_at.strftime("%F") %> </p>
+
+      <div class="card-footer">
+        <ul>
+          <li class="published-date">Postado em <%= post.created_at.strftime("%F") %> </li>
+          <li class="counting-icon"><a href="#"><i class="fas fa-share-square">Share</i><span class="numero">8</span></a></li>
+          <li class="counting-icon"><a href="#"><i class="fas fa-folder-plus">Keep</i><span class="numero">3</span></a></li>
+        </ul>
       </div>
     </div>
     <% end %>
   </div>
-</div>
+  </div>

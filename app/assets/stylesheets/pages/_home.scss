@@ -1,4 +1,10 @@
 // Specific CSS for your home-page
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 .banner {
   background-size: cover;
   background-position: center;
@@ -7,10 +13,18 @@
   height: 100vh;
 }
 
-.content{
-  height: 50vh;
-  margin-top: 60px;
+.sub-banner{
+  background-size: cover;
+  background-position: center;
+  background: linear-gradient(180deg, rgba(255, 187, 240, 0.05) 0%, rgba(255, 163, 246, 0.05) 0.01%, rgba(233, 171, 255, 0.05) 35.94%, rgba(255, 255, 255, 0.05) 74.48%);
+  padding: 20px 80px;
+  height: 10vh;
+}
 
+.content{
+  height: 100vh;
+  margin-top: 60px;
+  flex: 1;
 }
 
 .container {
@@ -22,12 +36,6 @@
 
 .row {
   margin: 60px -15px;
-}
-
-
-h1 {
-  font-family: 'Frijole', cursive;
-  color: rgb(93, 28, 139);
 }
 
 .fonts {
@@ -45,7 +53,12 @@ h1 {
     font-size: 18px;
   }
 
+  body{
+  font-size: 12px;
+  }
+
   .pes {
     font-size: 12px;
   }
 }
+

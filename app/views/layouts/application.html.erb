@@ -34,7 +34,7 @@
       <%= render 'shared/public_navbar' %>
     <% end%>
 <!-- content -->
-    <% unless params[:controller] == "pages" && params[:action] == "home" %>
+    <% unless params[:controller] == "pages" && params[:action] == "home" || params[:controller] == "posts" && params[:action] == "index"%>
       <div class="container">
     <% end %>
       <div data-behavior="vue-app">
