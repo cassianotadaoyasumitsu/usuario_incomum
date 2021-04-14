@@ -1,43 +1,47 @@
-<div class="card text-center">
-  <div class="card-header">
-    <div class="d-flex justify-content-between">
-      <%= link_to "🔙", posts_path, class: "text-decoration-none" %>
-      <h2> <%= @post.company %> </h2>
-      <p></p>
+<div class="card-container">
+  <div class="text-center">
+    <div class="card-banner p-2">
+      <div class="d-flex justify-content-between">
+        <%= link_to "🔙", posts_path, class: "text-decoration-none" %>
+        <h2> <%= @post.company %> </h2>
+        <p></p>
+      </div>
     </div>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title"><%= @post.title %></h5>
-    <p class="card-text">
-      Nihongo: <%= @post.service %><br>
-      Leitura e Escrita: <%= @post.turn %><br><br>
-      Descrição: <%= @post.description %><br><br>
-      Endereço: <%= @post.prefecture %><br>
-      <%= @post.address %><br><br>
-      Valor por hora ¥ <%= @post.value %><br><br>
-      Contato: <%= @post.contact %><br>
-      Telefone: <%= @post.phone %><br>
-      <%= simple_format @post.note %>
-    </p>
-    <% if user_signed_in? %>
-    <div class="d-flex justify-content-around">
-      <% if current_user.id == @post.user_id %>
-      <%= link_to "Editar 🖊", edit_post_path(@post), class: "text-decoration-none" %>
-      <%= link_to "Apagar 🗑", post_path(@post), class: "text-decoration-none",
-      method: :delete,
-      data: { confirm: 'Tem certeza?' } %>
-      <% else %>
-      <% end %>
-      <% end %>
+    <div class="card-body">
+      <h5 class="card-title"><%= @post.title %></h5>
+      <p class="card-text">
+        Nihongo: <%= @post.service %><br>
+        Leitura e Escrita: <%= @post.turn %><br><br>
+        Descrição: <%= @post.description %><br><br>
+        Endereço: <%= @post.prefecture %><br>
+        <%= @post.address %><br><br>
+        Valor por hora ¥ <%= @post.value %><br><br>
+        Contato: <%= @post.contact %><br>
+        Telefone: <%= @post.phone %><br>
+        <%= simple_format @post.note %>
+      </p>
+      <% if user_signed_in? %>
+      <div class="d-flex justify-content-around">
+        <% if current_user.id == @post.user_id %>
+        <%= link_to "Editar 🖊", edit_post_path(@post), class: "text-decoration-none" %>
+        <%= link_to "Apagar 🗑", post_path(@post), class: "text-decoration-none",
+        method: :delete,
+        data: { confirm: 'Tem certeza?' } %>
+        <% else %>
+        <% end %>
+        <% end %>
+      </div>
     </div>
+    <div class="card-footer text-muted">
+      <p class="card-text">
+       Este anúncio já tem <%= @post.hits %> visualizações. <br>
+       Postado em <%= @post.created_at.strftime("%F") %>
+       <div class="addthis_inline_share_toolbox"></div>
+     </p>
+   </div>
   </div>
-  <div class="card-footer text-muted">
-    <p class="card-text">
-     Este anúncio já tem <%= @post.hits %> visualizações. <br>
-     <div class="addthis_inline_share_toolbox"></div>
-   </p>
- </div>
 </div>
+
 
 
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-605df3add1f6a00c"></script>

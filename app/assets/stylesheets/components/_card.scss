@@ -130,10 +130,10 @@
 }
 
 .published-date {
-  background-color: lighten(#333, 80%);
   border-radius: 3px;
   padding: 0 .5rem;
   margin-right: 1rem;
+  white-space: pre-wrap !important;
 }
 .numero {
   position: relative;
