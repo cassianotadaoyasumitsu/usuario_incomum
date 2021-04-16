@@ -36,13 +36,17 @@
 <!-- content -->
     <% unless params[:controller] == "pages" && params[:action] == "home" || params[:controller] == "posts" && params[:action] == "index"%>
       <div class="container">
+        <div class="content">
     <% end %>
+
       <div data-behavior="vue-app">
         <%= render 'shared/flashes' %>
         <%= yield %>
       </div>
-   <% unless params[:controller] == "pages" && params[:action] == "home" %>
+
+    <% unless params[:controller] == "pages" && params[:action] == "home" %>
       </div>
+        </div>
     <% end %>
 <!-- footer -->
     <div class="footer">

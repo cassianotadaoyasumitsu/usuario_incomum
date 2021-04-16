@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 body {
   display: flex;
-  min-height: 100vh;
+  min-height: 100%;
   flex-direction: column;
 }
 
@@ -22,8 +22,8 @@ body {
 }
 
 .content{
-  height: 100vh;
   margin-top: 60px;
+  margin-bottom: 100px;
   flex: 1;
 }
 
