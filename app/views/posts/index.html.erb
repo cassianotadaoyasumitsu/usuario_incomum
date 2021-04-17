@@ -4,9 +4,9 @@
   <div class="container">
     <div class="content">
     <% if @search == "" %>
-    <h4><%= @posts.count %> <%= t('jobs posted here')%></h4>
+    <h4 class="fonts"><%= @posts.count %> <%= t('jobs posted here')%></h4>
     <% else %>
-    <h4><%= @posts.count %> <%= t('jobs found for keyword:')%> <%= @search %></h4>
+    <h4 class="fonts"><%= @posts.count %> <%= t('jobs found for keyword:')%> <%= @search %></h4>
     <% end %>
 
     <% @posts.each do |post| %>
