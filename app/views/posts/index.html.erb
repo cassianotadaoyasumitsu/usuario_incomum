@@ -25,24 +25,24 @@
         <div class="card-summary">
           <%= link_to post_path(post), class: "text-decoration-none" do %>
             <p><%= simple_format post.description %></p>
-            <p><%= post.value %></p>
-            <p><%= post.prefecture %></p>
+            <p>Salary <%= post.value %></p>
+            <p>prefecture <%= post.prefecture %></p>
           <% end %>
         </div>
-        <div class="card-tags">
+        <!-- <div class="card-tags">
           <ul>
             <li><a href="#">Tokyo</a></li>
             <li><a href="#">Hotel</a></li>
             <li><a href="#">Full-Time</a></li>
           </ul>
-        </div>
+        </div> -->
       </div>
 
       <div class="card-footer">
         <ul>
           <li class="published-date">Postado em <%= post.created_at.strftime("%F") %> </li>
-          <li class="counting-icon"><a href="#"><i class="fas fa-share-square">Share</i><span class="numero">8</span></a></li>
-          <li class="counting-icon"><a href="#"><i class="fas fa-folder-plus">Keep</i><span class="numero">3</span></a></li>
+          <!-- <li class="counting-icon"><a href="#"><i class="fas fa-share-square">Share</i><span class="numero">8</span></a></li>
+          <li class="counting-icon"><a href="#"><i class="fas fa-folder-plus">Keep</i><span class="numero">3</span></a></li> -->
         </ul>
       </div>
     </div>
