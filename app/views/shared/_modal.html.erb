@@ -1,0 +1,22 @@
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Escolha seu tipo de Usuário</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <%= simple_form_for @user do |f| %>
+        <div class="modal-body text-left">
+         <%= f.input :kind, label: 'Tipo de Usuário', as: :radio_buttons, collection: User::KIND %>
+       </div>
+       <div class="modal-footer">
+        <%= f.submit 'Salvar', class: "btn btn-primary w-100" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

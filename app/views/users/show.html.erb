@@ -1,32 +1,15 @@
 
-
 <% if current_user.kind == nil || current_user.kind == "" %>
+
+<div class="content">
+<div class="row justify-content-center">
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     Escolha seu tipo de Usuário
   </button>
-
-  <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Escolha seu tipo de Usuário</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <%= simple_form_for @user do |f| %>
-        <div class="modal-body text-left">
-         <%= f.input :kind, label: 'Tipo de Usuário', as: :radio_buttons, collection: User::KIND %>
-       </div>
-       <div class="modal-footer">
-        <%= f.submit 'Salvar', class: "btn btn-primary w-100" %>
-      </div>
-      <% end %>
-    </div>
-  </div>
+</div>
 </div>
 
+<%= render 'shared/modal' %>
 
 <% elsif current_user.kind == "Usuário" %>
 
@@ -39,9 +22,9 @@
   <p>Nihongo: <%= @user.nihongo %> </p>
   <p>Sobre você: <%= @user.note %> </p>
   <% if @user.work %>
-  <p> Estou trabalhando no momento. </p>
+    <p> Estou trabalhando no momento. </p>
   <% else %>
-  <p> Estou procurando emprego.</p>
+    <p> Estou procurando emprego.</p>
   <% end %>
   <%= link_to "Editar Perfil", edit_user_path(@user), class: "btn btn-outline-primary btn-sm btn-block" %>
   <%= link_to "Apagar Conta", user_path(current_user), class: 'btn btn-outline-danger btn-sm btn-block', method: :delete, data: { confirm: 'Você tem certeza? Isso apagara sua conta!' } %>
@@ -57,3 +40,4 @@
   <%= link_to "Apagar Conta", user_path(current_user), class: 'btn btn-outline-danger btn-sm btn-block', method: :delete, data: { confirm: 'Você tem certeza? Isso apagara sua conta!' } %>
 
 <% end %>
+
