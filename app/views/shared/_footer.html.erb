@@ -2,16 +2,16 @@
   <footer>
     <div class="row">
       <div class="col-sm-6 col-md-3 col-lg-3 item">
-        <h3>About Us</h3>
-        <p>Developed for the Brazilian community in Japan! We are already <strong><%= pluralize(User.count, 'User') %></strong>. <br>
-        Application developed to aggregate all job vacancies available in Japan.</p>
+        <h3><%= t('about') %></h3>
+        <p><%= t('about_line_1') %> <strong><%= pluralize(User.count, "#{t('user')}") %></strong>. <br>
+        <%= t('about_line_2') %>.</p>
       </div>
       <div class="col-sm-6 col-md-3 col-lg-3 item">
         <h3>Links</h3>
         <ul>
-          <li><a href="#">Job Search</a></li>
-          <li><a href="#">Job Posting</a></li>
-          <li><a href="#">Login</a></li>
+          <li><a href="#"><%= t('job_search') %></a></li>
+          <li><a href="#"><%= t('job_post') %></a></li>
+          <li><a href="#"><%= t('signin') %></a></li>
         </ul>
       </div>
 
@@ -21,13 +21,13 @@
         method="POST"
         >
         <fieldset class="form-group">
-          <input type="email" name="_replyto" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+          <input type="email" name="_replyto" class="form-control" id="exampleInputEmail1" placeholder="<%= "#{t('enter_email')}" %>">
         </fieldset>
         <fieldset class="form-group">
-          <textarea name="message" class="form-control" id="exampleMessage" placeholder="Message"></textarea>
+          <textarea name="message" class="form-control" id="exampleMessage" placeholder="<%= "#{t('message')}" %>"></textarea>
         </fieldset>
         <fieldset class="form-group text-xs-right">
-          <button type="submit" class="btn-border-white btn-lg">Send</button>
+          <button type="submit" class="btn-border-white btn-lg"><%= t('send') %></button>
         </fieldset>
       </form>
     </div>

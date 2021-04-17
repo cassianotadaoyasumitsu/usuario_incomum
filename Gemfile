@@ -41,6 +41,7 @@ gem "serviceworker-rails"
 
 gem 'social-share-button'
 
+gem 'rails-i18n', '~> 6.0.0'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

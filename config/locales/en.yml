@@ -1,33 +1,51 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
   hello: "Hello world"
+  find_your_dream_job_here: Find your dream Job here!
+  search: Search
+  keyword: "Ex: Kanagawa / Ex: Food / Ex: Company"
+  Most_Popular_Company_Posting: Most Popular Company Posting
+  title: Title
+  salary: Salary
+  prefecture: Prefecture
+  description: Description
+  posted: Posted in
+  about: About Us
+  about_line_1: Developed for the Brazilian community in Japan! We are already
+  user: User
+  about_line_2: Application developed to aggregate all job vacancies available in Japan
+  job_search: Job search
+  job_post: Post your job
+  signin: Sing In
+  message: Message
+  send: Send
+  enter_email: Enter email
+  signup: Sign Up
+  password: Password
+  forgot_password: Forgot your password?
+  confirmation: Did not receive the confirmation email?
+  kind: User kind
+  confirm_password: Confirm password
+  resend: Resend
+  new_password: New Password
+  profile: Profile
+  signout: Sign Out
+  speak: Knowledge of the Japanese language.
+  read: Japanese reading and writing.
+  job_description: Job description.
+  job_local: Local job / Address.
+  company: Company
+  contact: Contact
+  contact_phone: Contact phone
+  more_information: More informations
+  edit: Edit
+  create: Create
+  address: Address
+  about_company: About Company
+  save: Save
+  user_edit: Edit 🖊
+  user_destroy: Delete 🗑
+  japanese_level: Japanese
+  choose: Choose your user kind
+  are_you_sure: Are you sure?
+  views: Views
+  ad: This ad already has

@@ -10,23 +10,23 @@
     <div class="card-body">
       <h5 class="card-title"><%= @post.title %></h5>
       <p class="card-text">
-        Nihongo: <%= @post.service %><br>
-        Leitura e Escrita: <%= @post.turn %><br><br>
-        Descrição: <%= @post.description %><br><br>
-        Endereço: <%= @post.prefecture %><br>
+        <%= t('japanese_level') %>: <%= @post.service %><br>
+        <%= t('read') %>: <%= @post.turn %><br><br>
+        <%= t('job_description') %>: <%= @post.description %><br><br>
+        <%= t('address') %>: <%= @post.prefecture %><br>
         <%= @post.address %><br><br>
-        Valor por hora ¥ <%= @post.value %><br><br>
-        Contato: <%= @post.contact %><br>
-        Telefone: <%= @post.phone %><br>
+        <%= t('salary') %> ¥ <%= @post.value %><br><br>
+        <%= t('contact') %>: <%= @post.contact %><br>
+        <%= t('contact_phone') %>: <%= @post.phone %><br>
         <%= simple_format @post.note %>
       </p>
       <% if user_signed_in? %>
       <div class="d-flex justify-content-around">
         <% if current_user.id == @post.user_id %>
-        <%= link_to "Editar 🖊", edit_post_path(@post), class: "text-decoration-none" %>
-        <%= link_to "Apagar 🗑", post_path(@post), class: "text-decoration-none",
+        <%= link_to t('user_edit'), edit_post_path(@post), class: "text-decoration-none" %>
+        <%= link_to t('user_destroy'), post_path(@post), class: "text-decoration-none",
         method: :delete,
-        data: { confirm: 'Tem certeza?' } %>
+        data: { confirm: t('are_you_sure') } %>
         <% else %>
         <% end %>
         <% end %>
@@ -34,8 +34,8 @@
     </div>
     <div class="card-footer text-muted">
       <p class="card-text">
-       Este anúncio já tem <%= @post.hits %> visualizações. <br>
-       Postado em <%= @post.created_at.strftime("%F") %>
+       <%= t('ad') %> <%= @post.hits %> <%= t('views') %>. <br>
+       <%= t('posted') %> <%= @post.created_at.strftime("%F") %>
        <div class="addthis_inline_share_toolbox"></div>
      </p>
    </div>
