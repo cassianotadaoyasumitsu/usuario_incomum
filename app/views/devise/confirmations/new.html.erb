@@ -5,7 +5,7 @@
   </div>
   <div class="col-lg-4 offset-lg-2 col-md-6 offset-md-3">
     <div class="pt-4">
-      <h1>Reenviar email de confirmação</h1>
+      <h1 class="fonts text-center">Reenviar email de confirmação</h1>
     </div>
     <div class="mt-3 mt-md-5">
       <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
@@ -21,7 +21,7 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "REENVIAR", class: "btn btn-primary btn-block" %>
+        <%= f.button :submit, t('resend'), class: "btn btn-primary btn-block" %>
       </div>
       <% end %>
     </div>

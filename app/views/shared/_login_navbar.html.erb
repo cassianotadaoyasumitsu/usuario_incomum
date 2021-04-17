@@ -22,16 +22,16 @@
         </div>
       </li>
       <li class="nav-item">
-        <%= link_to 'Profile', user_path(current_user), class: "nav-link" %>
+        <%= link_to t('profile'), user_path(current_user), class: "nav-link" %>
       </li>
       <li class="nav-item d-none">
         <%= link_to 'Busca', posts_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Post my job", new_user_post_path(current_user), class: "nav-link" %>
+        <%= link_to t('job_post'), new_user_post_path(current_user), class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to 'Sign out', destroy_user_session_path, class: "nav-link", method: :delete %>
+        <%= link_to t('signout'), destroy_user_session_path, class: "nav-link", method: :delete %>
       </li>
       <li class="nav-item dropdown d-none">
         <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />

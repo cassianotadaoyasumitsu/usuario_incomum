@@ -1,4 +1,4 @@
-<h5 class="fonts"><%= t('Most Popular Company Posting')%></h5>
+<h5 class="fonts"><%= t('Most_Popular_Company_Posting')%></h5>
 <% @posts.each do |post| %>
   <div class="card-container">
 
@@ -10,13 +10,13 @@
 
   <div class="card-body">
     <div class="card-title">
-      <h3><%= post.title %></h3>
+      <h3><%= t('title') %>: <%= post.title %></h3>
     </div>
     <div class="card-summary">
       <%= link_to post_path(post), class: "text-decoration-none" do %>
-        <p><%= simple_format post.description %></p>
-        <p><%= post.value %></p>
-        <p><%= post.prefecture %></p>
+        <p><%= t('salary') %>: ¥ <%= post.value %> /hr</p>
+        <p><%= t('prefecture') %>: <%= post.prefecture %></p>
+        <p><%= t('description') %>: <%= simple_format post.description %></p>
       <% end %>
     </div>
     <!-- <div class="card-tags">
@@ -30,7 +30,7 @@
 
   <div class="card-footer">
     <ul>
-      <li class="published-date">Postado em <%= post.created_at.strftime("%F") %> </li>
+      <li class="published-date"><%= t('posted') %> <%= post.created_at.strftime("%F") %> </li>
       <!-- <li class="counting-icon"><a href="#"><i class="fas fa-share-square">Share</i><span class="numero">8</span></a></li>
       <li class="counting-icon"><a href="#"><i class="fas fa-folder-plus">Keep</i><span class="numero">3</span></a></li> -->
     </ul>

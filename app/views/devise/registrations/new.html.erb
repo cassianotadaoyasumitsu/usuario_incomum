@@ -6,7 +6,7 @@
   </div>
   <div class="col-lg-4 offset-lg-2 col-md-6 offset-md-3">
     <div class="pt-4">
-      <h1 class="fonts">CADASTRAR</h1>
+      <h1 class="fonts text-center"><%= t('signup') %></h1>
     </div>
     <div class="mt-3 mt-md-5">
 
@@ -14,13 +14,13 @@
       <%= f.error_notification %>
 
       <div class="d-flex flex-column pb-3">
-        <%= f.input :kind, label: 'Tipo de Usuário', as: :radio_buttons, collection: User::KIND,
+        <%= f.input :kind, label: "#{t('kind')}", as: :radio_buttons, collection: User::KIND,
         required: true,
         autofocus: true,
         input_html: { autocomplete: "kind" }%>
       </div>
       <div class="d-flex flex-column pb-3">
-        <%= f.input :prefecture, collection: User::PREFECTURE,
+        <%= f.input :prefecture, label: "#{t('prefecture')}", collection: User::PREFECTURE,
         required: true,
         autofocus: true,
         input_html: { autocomplete: "prefecture" }%>
@@ -32,18 +32,18 @@
         input_html: { autocomplete: "email" }%>
       </div>
       <div class="d-flex flex-column pb-3">
-        <%= f.input :password,
+        <%= f.input :password, label: "#{t('password')}",
         required: true,
         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
         input_html: { autocomplete: "new-password" } %>
       </div>
       <div class="d-flex flex-column pb-3">
-        <%= f.input :password_confirmation,
+        <%= f.input :password_confirmation, label: "#{t('confirm_password')}",
         required: true,
         input_html: { autocomplete: "new-password" } %>
       </div>
       <div class="form-actions">
-        <%= f.button :submit, "CADASTRAR", class: "btn btn-primary btn-block" %>
+        <%= f.button :submit, t('signup'), class: "btn btn-primary btn-block" %>
       </div>
     </div>
     <div class="register mt-5">
