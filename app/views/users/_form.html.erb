@@ -1,6 +1,6 @@
 <% if current_user.kind == "Usuário" %>
 <%= simple_form_for(user) do |f| %>
-<%= f.input :prefecture, label: t('prefecture') %>
+<%= f.input :prefecture, label: t('prefecture'), collection: Post::PREFECTURE %>
 <%= f.submit user.persisted? ? t('save') : t('create'), class: "btn btn-primary w-100" %>
 <% end %>
 <% else current_user.kind == "Empreiteira" %>
