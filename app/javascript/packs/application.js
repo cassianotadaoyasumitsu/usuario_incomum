@@ -35,10 +35,16 @@ import "bootstrap";
 
 import Vue from 'vue/dist/vue.esm'
 import Message from "../components/Message"
+import VueClipboard from 'vue-clipboard2'
+import Clipboard from "../components/Clipboard"
+
+
+VueClipboard.config.autoSetContainer = true
+Vue.use(VueClipboard)
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     el: '[data-behavior="vue-app"]',
-    components: { Message }
+    components: { Clipboard }
   })
 })
