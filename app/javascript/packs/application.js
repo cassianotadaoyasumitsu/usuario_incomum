@@ -24,6 +24,8 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import "core-js";
+import "regenerator-runtime/runtime";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -32,12 +34,10 @@ import "bootstrap";
 //   // Call your functions here, e.g:
 //   // initSelect2();
 // });
-
-import Vue from 'vue/dist/vue.esm'
-import Message from "../components/Message"
+import 'babel-polyfill'
+import Vue from 'vue'
 import VueClipboard from 'vue-clipboard2'
-import Clipboard from "../components/Clipboard"
-
+import Clipboard from "../components/Clipboard/Clipboard.vue"
 
 VueClipboard.config.autoSetContainer = true
 Vue.use(VueClipboard)
@@ -46,5 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     el: '[data-behavior="vue-app"]',
     components: { Clipboard }
+  })
+})
+
+import ShareCount from '../components/Share/SharesCount.vue'
+
+document.addEventListener('DOMContentLoaded', () => {
+  new Vue({
+    el: '#share',
+    components: { LikeButton }
   })
 })
