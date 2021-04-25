@@ -1,0 +1,51 @@
+"pt-BR":
+  hello: "Olá Mundo"
+  find_your_dream_job_here: Encontre o trabalho certo pra você!
+  search: Buscar
+  keyword: "Ex: Kanagawa / Ex: Auto peças / Ex: Empreiteira"
+  Most_Popular_Company_Posting: Postagens mais populares
+  title: Vaga
+  salary: Salário
+  prefecture: Prefeitura
+  description: Descrição
+  posted: Postado em
+  about: Sobre nós
+  about_line_1: Desenvolvido para a comunidade brasileira no Japão! Já estamos com
+  user: Usuários
+  about_line_2: Aplicativo desenvolvido para agregar todas as vagas disponíveis no Japão
+  job_search: Buscar
+  job_post: Criar vagas
+  signin: Entrar
+  message: Mensagem
+  send: Enviar
+  enter_email: Seu email
+  signup: Cadastrar
+  password: Senha
+  forgot_password: Esqueceu sua senha?
+  confirmation: Não recebeu o email de confirmação?
+  kind: Tipo de usuário
+  confirm_password: Confirmar senha
+  resend: Reenviar
+  new_password: Nova Senha
+  profile: Perfil
+  signout: Sair
+  speak: Conhecimento da língua Japonesa
+  read: Leitura e Escrita
+  job_description: Descrição do trabalho
+  job_local: Local do trabalho / Endereço
+  company: Empreiteira
+  contact: Responsável
+  contact_phone: Telefone de contato
+  more_information: Outras informações
+  edit: Editar
+  create: Criar
+  address: Endereço
+  about_company: Sobre a Empreiteira
+  save: Salvar
+  user_edit: Editar 🖊
+  user_destroy: Apagar 🗑
+  japanese_level: Nihongo
+  choose: Escolha seu tipo de Usuário
+  are_you_sure: Você tem certeza?
+  views: visualizações
+  ad: Este anúncio já tem

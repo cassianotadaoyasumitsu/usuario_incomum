@@ -27,21 +27,32 @@
 </head>
 
 <body>
-  <% if user_signed_in? %>
-    <%= render 'shared/login_navbar' %>
-  <% else %>
-    <%= render 'shared/public_navbar' %>
-  <% end%>
+<!-- navbar -->
+    <% if user_signed_in? %>
+      <%= render 'shared/login_navbar' %>
+    <% else %>
+      <%= render 'shared/public_navbar' %>
+    <% end%>
+<!-- content -->
+    <% unless params[:controller] == "pages" && params[:action] == "home" || params[:controller] == "posts" && params[:action] == "index"%>
+      <div class="container">
+        <div class="content">
+    <% end %>
 
-  <div data-behavior="vue-app">
-    <%= render 'shared/flashes' %>
+      <div data-behavior="vue-app">
+        <%= render 'shared/flashes' %>
+        <%= yield %>
+      </div>
 
-    <%= yield %>
-  </div>
-
-  <div class="footer">
-    <%= render 'shared/footer' %>
-  </div>
+    <% unless params[:controller] == "pages" && params[:action] == "home" %>
+      </div>
+        </div>
+    <% end %>
+<!-- footer -->
+    <div class="footer">
+      <%= render 'shared/footer' %>
+    </div>
+<!-- js -->
     <%= javascript_pack_tag 'application' %>
 </body>
 </html>

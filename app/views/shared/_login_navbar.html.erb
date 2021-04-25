@@ -1,61 +1,45 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-white w-100">
-  <div class="container-fluid">
-    <%= link_to "Home", authenticated_root_path, class: "navbar-brand" %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to 'Perfil', user_path(current_user), class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Busca', posts_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item d-none">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Posts", new_user_post_path(current_user), class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Exit', destroy_user_session_path, method: :delete, class: "nav-link" %>
-        </li>
-        <!-- <li class="dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= t('language') %>
+<div class="navbar navbar-expand navbar-light navbar-usuario">
+  <%= link_to unauthenticated_root_path, class: "small-logo" do %>
+  <%= image_tag "roxo.png" %>
+  <% end %>
+
+<!--   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+  <div class="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
+    <ul class="navbar-nav mlauto align-items-center">
+      <li class="nav-item dropdown">
+        <div class="btn-group"> <%#d-none%>
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #67008B">
+            <i class="fas fa-globe" style="color: #67008B"></i>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><%= link_to '🇬🇧 English', params.merge(locale: 'en').permit(:locale), class: "nav-link" %></li>
             <li><%= link_to '🇧🇷 Português', params.merge(locale: 'pt-BR').permit(:locale), class: "nav-link" %></li>
-            <li><%= link_to '🇪🇸 Español', params.merge(locale: 'es').permit(:locale), class: "nav-link" %></li>
-            <li><%= link_to '🇯🇵 日本語', params.merge(locale: 'ja').permit(:locale), class: "nav-link" %></li>
+            <!-- <li><%= link_to '🇪🇸 Español', params.merge(locale: 'es').permit(:locale), class: "nav-link" %></li>
+            <li><%= link_to '🇯🇵 日本語', params.merge(locale: 'ja').permit(:locale), class: "nav-link" %></li> -->
           </ul>
-        </li> -->
-        <% else %>
-        <li class="nav-item">
-          <%= link_to 'Busca', posts_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to t('login'), new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="dropdown d-none">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= t('language') %>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to '🇬🇧 English', params.merge(locale: 'en').permit(:locale), class: "nav-link" %></li>
-            <li><%= link_to '🇧🇷 Português', params.merge(locale: 'pt-BR').permit(:locale), class: "nav-link" %></li>
-            <li><%= link_to '🇪🇸 Español', params.merge(locale: 'es').permit(:locale), class: "nav-link" %></li>
-            <li><%= link_to '🇯🇵 日本語', params.merge(locale: 'ja').permit(:locale), class: "nav-link" %></li>
-          </ul>
-        </li>
-        <li class="nav-item d-none">
-          <%= link_to "Q&A", class: "nav-link" %>
-        </li>
-        <% end %>
-      </ul>
-    </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('profile'), user_path(current_user), class: "nav-link" %>
+      </li>
+      <li class="nav-item d-none">
+        <%= link_to 'Busca', posts_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('job_post'), new_user_post_path(current_user), class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('signout'), destroy_user_session_path, class: "nav-link", method: :delete %>
+      </li>
+      <li class="nav-item dropdown d-none">
+        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <div class="dropdown-item"><%= link_to 'My Page'%></div>
+          <div class="dropdown-item"><%= link_to 'sign out', destroy_user_session_path, method: :delete %></div>
+        </div>
+      </li>
+    </ul>
   </div>
-</nav>
+</div>
