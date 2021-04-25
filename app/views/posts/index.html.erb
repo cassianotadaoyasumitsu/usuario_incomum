@@ -41,7 +41,7 @@
       <div class="card-footer">
         <ul>
           <li class="published-date">Postado em <%= post.created_at.strftime("%F") %> </li>
-          <li class="counting-icon"><a herf="#" data-toggle="modal" data-target="#shareModal"><i class="fas fa-share-square">Share</i><span class="numero">8</span></a></li>
+          <li class="counting-icon"><shares-count data-toggle="modal" data-target="#shareModal" :post-id="<%= post.id %>"></shares-count></li>
           <%= render partial: "share_modal", locals: {post:post} %>
 
           <li class="counting-icon"><a href="#"><i class="fas fa-folder-plus">Keep</i><span class="numero">3</span></a></li>

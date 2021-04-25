@@ -2,13 +2,18 @@
   "name": "usuario_incomum",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.13.16",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "^5.2.1",
     "axios": "^0.21.1",
+    "babel-loader": "^8.2.2",
     "bootstrap": "^4.6.0",
+    "bootstrap-vue": "^2.21.2",
     "clipboard": "^2.0.8",
+    "core-js": "^3.11.0",
+    "idempotent-babel-polyfill": "^7.4.4",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "rails-ujs": "^5.2.5",
@@ -17,10 +22,13 @@
     "vue": "^2.6.12",
     "vue-clipboard2": "^0.3.1",
     "vue-loader": "^15.9.6",
-    "vue-template-compiler": "^2.6.12"
+    "vue-simple-addthis-share": "^0.1.5",
+    "vue-template-compiler": "^2.6.12",
+    "vue-turbolinks": "^2.2.2"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "babel-polyfill": "^6.26.0",
     "webpack-dev-server": "^3.11.2"
   }
 }

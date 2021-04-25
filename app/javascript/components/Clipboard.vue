@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex align-items-center mb-3">
-    <input type="text" :placeholder="url" v-model="message" class="search-form-control form-control mr-1" readonly >
+    <input type="text" :placeholder="url" class="search-form-control form-control mr-1" readonly >
     <a href="#"
       v-clipboard:copy= "url"
       v-clipboard:success="onCopy"
@@ -9,14 +9,10 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   props: {
     url: { type: String}
-  },
-  data: function () {
-      return {
-      url: url
-   }
   },
   methods: {
     onCopy: function (e) {
