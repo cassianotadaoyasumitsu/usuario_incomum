@@ -20,9 +20,18 @@
   color: #000000;
   text-decoration: none;
   transition: .25s ease;
-  &:hover {
+  & :hover {
     border-color: #ff4d4d;
     color: purple;
+  }
+
+}
+
+.counting-icon {
+  & :hover {
+    border-color: #ff4d4d;
+    color: purple;
+    cursor: pointer;
   }
 }
 
