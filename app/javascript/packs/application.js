@@ -3,10 +3,11 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("@rails/ujs").start()
-// require("turbolinks").start()
+// const Rails = require('rails-ujs');
+// Rails.start();
+require("turbolinks").start()
 require("@rails/activestorage").start()
-require("channels")
+// require("channels")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -24,6 +25,8 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import "core-js";
+import "regenerator-runtime/runtime";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -33,18 +36,36 @@ import "bootstrap";
 //   // initSelect2();
 // });
 
-import Vue from 'vue/dist/vue.esm'
-import Message from "../components/Message"
+import Vue from 'vue'
+import TurbolinksAdapter from 'vue-turbolinks'
+
+import App from '../app.vue'
 import VueClipboard from 'vue-clipboard2'
-import Clipboard from "../components/Clipboard"
+import Clipboard from '../components/Clipboard.vue'
+import 'idempotent-babel-polyfill'
+import SharesCount from '../components/SharesCount.vue'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import Sharethis from '../applications/Sharethis.vue'
 
+// Import Bootstrap an BootstrapVue CSS files (order is important)
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-VueClipboard.config.autoSetContainer = true
+// Make BootstrapVue available throughout your project
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
+Vue.use(TurbolinksAdapter)
 Vue.use(VueClipboard)
+VueClipboard.config.autoSetContainer = true
 
-document.addEventListener('DOMContentLoaded', () => {
+Vue.component('clipboard', Clipboard)
+Vue.component('shares-count', SharesCount)
+Vue.component('sharethis', Sharethis)
+
+  document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
-    el: '[data-behavior="vue-app"]',
-    components: { Clipboard }
-  })
-})
+    el: '[data-behavior="vue-app"]'
+  });
+});
+
