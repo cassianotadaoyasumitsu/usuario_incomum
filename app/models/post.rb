@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :shares, dependent: :destroy
   acts_as_punchable
 
   NIHONGO = ["Não é necessário", "10% ~ 30% (Básico)", "31% ~ 60% (Intermediário)", "61% ~ 100% (Avançado)"]
@@ -31,4 +32,11 @@ class Post < ApplicationRecord
 
   # validates :title, :service, :turn, :description, :prefecture, :address,
   # :value, :company, :contact, :phone, presence: true
+
+  def self.top
+    select("posts.*, count(shares.id) AS shares_count").
+    joins(:shares).
+    group("posts.id").
+    order("shares_count DESC")
+  end
 end

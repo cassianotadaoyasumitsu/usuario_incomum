@@ -10,25 +10,25 @@
     <% end %>
 
     <% @posts.each do |post| %>
-      <div class="card-container">
+    <div class="card-container">
 
-      <div class="card-banner">
-        <div class="card-company">
-            <h5><%= post.company %></h5>
-        </div>
+    <%= link_to post_path(post), class: "text-decoration-none" do %>
+    <div class="card-banner">
+      <div class="card-company">
+          <h5><%= post.company %></h5>
       </div>
+    </div>
 
-      <div class="card-body">
-        <div class="card-title">
-          <h3><%= post.title %></h3>
-        </div>
-        <div class="card-summary">
-          <%= link_to post_path(post), class: "text-decoration-none" do %>
-            <p><%= simple_format post.description %></p>
-            <p>Salary <%= post.value %></p>
-            <p>prefecture <%= post.prefecture %></p>
-          <% end %>
-        </div>
+    <div class="card-body">
+      <div class="card-title">
+        <h3><%= post.title %></h3>
+      </div>
+      <div class="card-summary">
+          <p><%= t('salary') %>: ¥ <%= post.value %> /hr</p>
+          <p><%= t('prefecture') %>: <%= post.prefecture %></p>
+          <p><%= t('description') %>: <%= simple_format post.description %></p>
+        <% end %>
+      </div>
         <!-- <div class="card-tags">
           <ul>
             <li><a href="#">Tokyo</a></li>
@@ -41,8 +41,9 @@
       <div class="card-footer">
         <ul>
           <li class="published-date">Postado em <%= post.created_at.strftime("%F") %> </li>
-          <!-- <li class="counting-icon"><a href="#"><i class="fas fa-share-square">Share</i><span class="numero">8</span></a></li>
-          <li class="counting-icon"><a href="#"><i class="fas fa-folder-plus">Keep</i><span class="numero">3</span></a></li> -->
+          <li class="counting-icon"><shares-count data-toggle="modal" data-target="#shareModal" :post-id="<%= post.id %>"></shares-count></li>
+          <%= render partial: "share_modal", locals: {post:post} %>
+          <li class="counting-icon"><a href="#"><i class="fas fa-folder-plus">Keep</i><span class="numero">3</span></a></li>
         </ul>
       </div>
     </div>
