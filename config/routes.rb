@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  namespace :api, { format: 'json' } do
-    resources :shares, only: [:index, :create, :destroy]
-  end
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { confirmations: 'confirmations' }
 
