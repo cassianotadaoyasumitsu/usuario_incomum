@@ -14,7 +14,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post.punch(request)
-    @shares = Share.all
   end
 
   def new
