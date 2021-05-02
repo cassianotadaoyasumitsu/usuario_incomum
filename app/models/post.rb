@@ -32,4 +32,11 @@ class Post < ApplicationRecord
 
   # validates :title, :service, :turn, :description, :prefecture, :address,
   # :value, :company, :contact, :phone, presence: true
+
+  def self.top
+    select("posts.*, count(shares.id) AS shares_count").
+    joins(:shares).
+    group("posts.id").
+    order("shares_count DESC")
+  end
 end

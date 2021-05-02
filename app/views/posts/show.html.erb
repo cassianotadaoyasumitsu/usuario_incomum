@@ -34,11 +34,11 @@
     </div>
     <div class="card-footer text-muted">
       <p class="card-text">
-      <%= t('ad') %> <%= @post.hits %> <%= t('views') %>,   <%= @shares.count %> <%= t('shares') %>. <br>
+      <%= t('ad') %> <%= @post.hits %> <%= t('views') %>,   <%= @post.shares.count %> <%= t('shares') %>. <br>
       <%= t('posted') %> <%= @post.created_at.strftime("%F") %>
-      <clipboard style="width:30%;margin: auto;" class="mt-3" url="https://www.usuarioincomum.com/posts/<%= @post.id %>"></clipboard>
-      <sharethis url="https://www.usuarioincomum.com/posts/<%= @post.id %>"></sharethis>
-     </p>
+      <clipboard  style="width:30%;margin: auto;" class="mt-3" url="https://www.usuarioincomum.com/posts/<%= @post.id %>"></clipboard>
+      <sharethis  url="https://www.usuarioincomum.com/posts/<%= @post.id %>" :post-id="<%= @post.id %>"></sharethis>
+    </p>
    </div>
   </div>
 </div>

@@ -2,6 +2,7 @@
 <% @posts.each do |post| %>
   <div class="card-container">
 
+  <%= link_to post_path(post), class: "text-decoration-none" do %>
   <div class="card-banner">
     <div class="card-company">
         <h5><%= post.company %></h5>
@@ -10,10 +11,9 @@
 
   <div class="card-body">
     <div class="card-title">
-      <h3><%= t('title') %>: <%= post.title %></h3>
+      <h3> <%= post.title %></h3>
     </div>
     <div class="card-summary">
-      <%= link_to post_path(post), class: "text-decoration-none" do %>
         <p><%= t('salary') %>: ¥ <%= post.value %> /hr</p>
         <p><%= t('prefecture') %>: <%= post.prefecture %></p>
         <p><%= t('description') %>: <%= simple_format post.description %></p>
@@ -40,3 +40,5 @@
 
 </div>
 <% end %>
+
+<%=link_to t('See More'),posts_path, class:"btn-purple pt-2 pb-2" %>

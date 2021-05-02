@@ -19,12 +19,6 @@
 .card-container a {
   color: #000000;
   text-decoration: none;
-  transition: .25s ease;
-  & :hover {
-    border-color: #ff4d4d;
-    color: purple;
-  }
-
 }
 
 .counting-icon {
