@@ -21,7 +21,7 @@ export default {
       shareList: []  // いいね一覧を格納するための変数　{ id: 1, user_id: 1, post_id: 1 } がArrayで入る
     }
   },
-  // 算出プロパティ ここではshareListが変更される度に、count、isshared が再構築される (watchで監視するようにしても良いかも)
+  // 算出プロパティ ここではshareListが変更される度にcount、isshared が再構築される (watchで監視するようにしても良いかも)
   computed: {
     // いいね数を返す
     count() {
