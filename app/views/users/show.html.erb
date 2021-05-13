@@ -12,10 +12,8 @@
 <%= render 'shared/modal' %>
 
 <% elsif current_user.kind == "Usuário" %>
-<p><%= t('prefecture') %>: <%= @user.prefecture %> </p>
-<%= link_to t('user_edit'), edit_user_path(@user), class: "btn btn-outline-primary btn-sm btn-block" %>
-<%= link_to t('user_destroy'), user_path(current_user), class: 'btn btn-outline-danger btn-sm btn-block', method: :delete, data: { confirm: 'Você tem certeza? Isso apagara sua conta!' } %>
 
+<%= render 'users/user_profile' %>
 <% else %>
 
 <p><%= t('company') %>: <%= @user.name %> </p>
