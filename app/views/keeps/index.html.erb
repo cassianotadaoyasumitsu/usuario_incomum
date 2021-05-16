@@ -1,15 +1,10 @@
-  <div class="sub-banner">
-    <%= render 'shared/sub_search_bar' %>
-  </div>
+
   <div class="container">
     <div class="content">
-    <% if @search == "" %>
-    <h4 class="fonts"><%= @posts.count %> <%= t('jobs posted here')%></h4>
-    <% else %>
-    <h4 class="fonts"><%= @posts.count %> <%= t('jobs found for keyword:')%> <%= @search %></h4>
-    <% end %>
 
-    <% @posts.each do |post| %>
+    <h4 class="fonts"><%= @keeps.count %> <%= t('jobs keeped here')%></h4>
+    <% @keeps.each do |keep| %>
+    <% post = keep.post %>
     <div class="card-container">
 
     <%= link_to post_path(post), class: "text-decoration-none" do %>
@@ -42,15 +37,8 @@
         <ul>
           <li class="published-date">Postado em <%= post.created_at.strftime("%F") %> </li>
           <li class="counting-icon"><shares-count data-toggle="modal" data-target="#shareModal" :post-id="<%= post.id %>"></shares-count></li>
-          <%= render partial: "share_modal", locals: {post:post} %>
-          <li class="counting-icon">
-          <% if current_user.nil? %>
-            <%= link_to new_user_session_path do %>
-            <i class="fas fa-folder-plus">Keep</i><span class="numero"><%= post.keeps.count %></span>
-            <% end %></li>
-          <% else %>
-            <keeps-count :post-id="<%= post.id %>" :user-id="<%= current_user.id %>"></keeps-count></li>
-          <% end %>
+          <%= render partial: "posts/share_modal", locals: {post:post} %>
+          <li class="counting-icon"> Unkeep</li>
         </ul>
       </div>
     </div>

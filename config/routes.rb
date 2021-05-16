@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   namespace :api, { format: 'json' } do
+    resources :keeps, only: [:index, :create, :destroy]
     resources :shares, only: [:index, :create, :destroy]
   end
 
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
       root 'pages#home', as: :authenticated_root
       resources :users do
         resources :posts, only: [:new, :create]
+        resources :keeps, only: [:index, :destroy]
       end
     end
 

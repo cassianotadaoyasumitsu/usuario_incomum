@@ -33,8 +33,14 @@
       <li class="published-date"><%= t('posted') %> <%= post.created_at.strftime("%F") %> </li>
       <li class="counting-icon"><shares-count data-toggle="modal" data-target="#shareModal" :post-id="<%= post.id %>"></shares-count></li>
       <%= render partial: "posts/share_modal", locals: {post:post} %>
-      <li class="counting-icon"><a href="#"><i class="fas fa-folder-plus">Keep</i><span class="numero">3</span></a></li>
-
+      <li class="counting-icon">
+      <% if current_user.nil? %>
+        <%= link_to new_user_session_path do %>
+        <i class="fas fa-folder-plus">Keep</i><span class="numero"><%= post.keeps.count %></span>
+        <% end %></li>
+      <% else %>
+        <keeps-count :post-id="<%= post.id %>" :user-id="<%= current_user.id %>"></keeps-count></li>
+      <% end %>
     </ul>
   </div>
 
