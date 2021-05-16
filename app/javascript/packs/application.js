@@ -44,6 +44,7 @@ import VueClipboard from 'vue-clipboard2'
 import Clipboard from '../components/Clipboard.vue'
 import 'idempotent-babel-polyfill'
 import SharesCount from '../components/SharesCount.vue'
+import KeepsCount from '../components/KeepsCount.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import Sharethis from '../applications/Sharethis.vue'
 
@@ -61,6 +62,7 @@ VueClipboard.config.autoSetContainer = true
 
 Vue.component('clipboard', Clipboard)
 Vue.component('shares-count', SharesCount)
+Vue.component('keeps-count', KeepsCount)
 Vue.component('sharethis', Sharethis)
 
   document.addEventListener('turbolinks:load', () => {

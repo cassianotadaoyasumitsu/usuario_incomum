@@ -24,6 +24,9 @@
       <li class="nav-item">
         <%= link_to t('profile'), user_path(current_user), class: "nav-link" %>
       </li>
+      <li class="nav-item">
+        <%= link_to t('my Keep list'), user_keeps_path(current_user), class: "nav-link" %>
+      </li>
       <li class="nav-item d-none">
         <%= link_to 'Busca', posts_path, class: "nav-link" %>
       </li>
