@@ -38,7 +38,10 @@
           <li class="published-date">Postado em <%= post.created_at.strftime("%F") %> </li>
           <li class="counting-icon"><shares-count data-toggle="modal" data-target="#shareModal" :post-id="<%= post.id %>"></shares-count></li>
           <%= render partial: "posts/share_modal", locals: {post:post} %>
-          <li class="counting-icon"> Unkeep</li>
+          <li>
+          <%= link_to t('Unkeep'), class: "counting-icon",
+          method: :delete,
+          data: { confirm: t('are_you_sure') } %></li>
         </ul>
       </div>
     </div>
