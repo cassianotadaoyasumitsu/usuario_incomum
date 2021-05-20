@@ -33,7 +33,7 @@
   read: Leitura e Escrita
   job_description: Descrição do trabalho
   job_local: Local do trabalho / Endereço
-  company: Empreiteira
+  company: Empresa
   contact: Responsável
   contact_phone: Telefone de contato
   more_information: Outras informações
@@ -43,9 +43,10 @@
   about_company: Sobre a Empreiteira
   save: Salvar
   user_edit: Editar 🖊
-  user_destroy: Apagar 🗑
+  user_destroy: Apagar
   japanese_level: Nihongo
   choose: Escolha seu tipo de Usuário
   are_you_sure: Você tem certeza?
   views: visualizações
   ad: Este anúncio já tem
+  reset:
