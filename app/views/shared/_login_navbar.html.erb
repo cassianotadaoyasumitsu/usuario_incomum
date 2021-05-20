@@ -1,12 +1,13 @@
-<div class="navbar navbar-expand navbar-light navbar-usuario">
+<div class="navbar navbar-expand-sm navbar-light navbar-usuario">
   <%= link_to unauthenticated_root_path, class: "small-logo" do %>
   <%= image_tag "roxo.png" %>
   <% end %>
 
-<!--   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button> -->
-  <div class="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mlauto align-items-center">
       <li class="nav-item dropdown">
         <div class="btn-group"> <%#d-none%>
@@ -31,7 +32,7 @@
         <%= link_to 'Busca', posts_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <% if current_user.kind == "Empreiteira" %><%= link_to t('job_post'), new_user_post_path(current_user), class: "nav-link" %><% else %><% end %>
+        <% if current_user.kind == "Empresa" %><%= link_to t('job_post'), new_user_post_path(current_user), class: "nav-link" %><% else %><% end %>
       </li>
       <li class="nav-item">
         <%= link_to t('signout'), destroy_user_session_path, class: "nav-link", method: :delete %>

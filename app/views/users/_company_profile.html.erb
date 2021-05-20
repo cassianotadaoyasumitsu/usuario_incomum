@@ -12,7 +12,7 @@
         <h5 class="user-name"><%= @user.name %></h5>
         <h6 class="user-email"><%= @user.email %></h6>
         <hr>
-        <h6 class="job-keeped">No of job keeped: <%= link_to "#{@user.keeps.count}", user_keeps_path(@user) %></h6>
+        <h6 class="job-keeped">No of job posted: <%= @user.posts.count %> </h6>
       </div>
       <div class="about">
         <h5></h5>
@@ -25,14 +25,16 @@
 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
 <div class="card-profile h-100">
   <div class="card-body">
-        <h3 class="mb-2 text-primary text-center fonts">Personal Details</h3>
+        <h3 class="mb-2 text-primary text-center fonts">Company Details</h3>
       <%= simple_form_for @user, html: {novalidate: true, class: "no-bs-validation w-100 mx-auto"}  do |f| %>
-          <%= f.input :name, label: t('Full Name'), class:"col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" %>
+          <%= f.input :name, label: t('company'), class:"col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" %>
           <%= f.input :kind, label: "#{t('kind')}", as: :radio_buttons, collection: User::KIND  %>
           <%= f.input :email, label: t('Email'), class:"col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" %>
           <%= f.input :phone, label: t('contact_phone') %>
           <%= f.input :prefecture, label: t('prefecture'), collection: Post::PREFECTURE %>
           <%= f.input :address, label: t('address') %>
+          <%= f.input :note, label: t('about_company') %>
+
 
           <%= f.button :button, t('Reset'), type:'reset', class: "btn btn-secondary" %>
           <%= f.submit @user.persisted? ? t('save') : t('create'), class: "btn btn-primary" %>

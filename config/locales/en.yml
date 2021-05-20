@@ -43,9 +43,10 @@ en:
   about_company: About Company
   save: Save
   user_edit: Edit 🖊
-  user_destroy: Delete 🗑
+  user_destroy: Delete my account
   japanese_level: Japanese
   choose: Choose your user kind
   are_you_sure: Are you sure?
   views: Views
   ad: This ad already has
+  reset: reset
