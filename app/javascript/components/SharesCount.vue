@@ -1,8 +1,6 @@
 <template>
   <div @click="registerShare()">
-   <a herf="#" >
     <i class="fas fa-share-square">Share</i><span class="numero">{{ count }}</span>
-    </a>
   </div>
 </template>
 

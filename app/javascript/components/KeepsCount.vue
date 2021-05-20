@@ -1,14 +1,10 @@
 <template>
   <div>
     <div v-if="isKeeped" @click="deleteKeep()">
-    <a href="#">
-    <i class="fas fa-folder-plus">Keep</i><span class="numero">{{ count }}</span>
-    </a>
-    </div>
+    <i class="fas fa-bookmark">Unkeep</i><span class="numero">{{ count }}</span>
+   </div>
     <div v-else @click="registerKeep()">
-    <a href="#">
-    <i class="fas fa-folder-plus">Keep</i><span class="numero">{{ count }}</span>
-    </a>
+    <i class="far fa-bookmark">Keep</i><span class="numero">{{ count }}</span>
     </div>
   </div>
 </template>
@@ -58,7 +54,7 @@ export default {
       const res = await axios.post('/api/keeps', { post_id: this.postId })
       if (res.status !== 201) { process.exit() }
       this.fetchKeepByPostId().then(result => {
-        this.keepList = result
+      this.keepList = result
       })
     },
     // rails側のdestroyアクションにリクエストするメソッド
