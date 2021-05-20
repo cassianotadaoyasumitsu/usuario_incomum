@@ -23,7 +23,7 @@
 <p><%= t('about_company') %>: <%= @user.note %> </p>
 <div class="d-flex justify-content-around">
   <%= link_to t('user_edit'), edit_user_path(@user), class: "text-decoration-none" %>
-  <%= link_to t('user_destroy'), user_path(current_user), class: "text-decoration-none", method: :delete, data: { confirm: 'Você tem certeza? Isso apagara sua conta!' } %>
+
 </div>
 <% end %>
 
