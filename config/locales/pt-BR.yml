@@ -49,4 +49,7 @@
   are_you_sure: Você tem certeza?
   views: visualizações
   ad: Este anúncio já tem
-  reset:
+  #please translate here.
+  reset: reset
+  unauthorized_message: Sorry, if you want to post the job, please first change your profile setting to company.
+  setup_profile_message: Please set up your profile before you post the job.

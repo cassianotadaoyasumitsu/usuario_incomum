@@ -50,3 +50,5 @@ en:
   views: Views
   ad: This ad already has
   reset: reset
+  unauthorized_message: Sorry, if you want to post the job, please first change your profile setting to company.
+  setup_profile_message: Please set up your profile before you post the job.
