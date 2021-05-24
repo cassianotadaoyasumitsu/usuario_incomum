@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :users do
         resources :posts, only: [:new, :create]
         resources :keeps, only: [:index, :destroy]
+        get "posted", to: "users#user_posted"
       end
     end
 

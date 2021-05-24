@@ -37,6 +37,15 @@ class UsersController < ApplicationController
     redirect_to unauthenticated_root_path
   end
 
+  def user_posted
+    @search = params['search']
+    if @search.present?
+      @posts = Post.where(user: "#{@user.id}").search_info("#{@search}")
+    else
+      @posts = Post.where(user: "#{@user.id}")
+    end
+  end
+
   private
 
   def find_user
