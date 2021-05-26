@@ -12,8 +12,8 @@ Rails.application.routes.draw do
       root 'pages#home', as: :authenticated_root
       resources :users do
         resources :posts, only: [:new, :create]
+        get "posted", to: "posts#user_posted"
         resources :keeps, only: [:index, :destroy]
-        get "posted", to: "users#user_posted"
       end
     end
 

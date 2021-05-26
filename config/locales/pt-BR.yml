@@ -34,7 +34,7 @@
   job_description: Descrição do trabalho
   job_local: Local do trabalho / Endereço
   company: Empresa
-  contact: Responsável
+  contact_person: Responsável
   contact_phone: Telefone de contato
   more_information: Outras informações
   edit: Editar
@@ -42,14 +42,21 @@
   address: Endereço
   about_company: Sobre a Empreiteira
   save: Salvar
-  user_edit: Editar 🖊
-  user_destroy: Apagar
+  post_edit: Editar 🖊
+  post_destroy: Apagar
   japanese_level: Nihongo
   choose: Escolha seu tipo de Usuário
   are_you_sure: Você tem certeza?
   views: visualizações
   ad: Este anúncio já tem
   #please translate here.
+  user_destroy: Delete my account
   reset: reset
   unauthorized_message: Sorry, if you want to post the job, please first change your profile setting to company.
   setup_profile_message: Please set up your profile before you post the job.
+  job_post_title: Job Description
+  email: Email
+  you_have_posted_: You have posted
+  job_here: job(s).
+  posted_job_found_for_keyword: Posted job(s) found for keyword
+  you_have_kept: You have kept

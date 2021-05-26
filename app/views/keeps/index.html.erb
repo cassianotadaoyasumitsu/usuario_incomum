@@ -2,7 +2,7 @@
   <div class="container">
     <div class="content">
 
-    <h4 class="fonts"><%= @keeps.count %> <%= t('jobs keeped here')%></h4>
+    <h4 class="fonts"><%= t('you_have_kept')%>&nbsp;<%= @keeps.count %>&nbsp;<%= t('job_here')%></h4>
     <% @keeps.each do |keep| %>
     <% post = keep.post %>
     <div class="card-container">

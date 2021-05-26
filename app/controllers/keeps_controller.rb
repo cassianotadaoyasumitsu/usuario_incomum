@@ -3,6 +3,7 @@ class KeepsController < ApplicationController
 
   def index
     @keeps = Keep.where(user_id:"#{@user.id}").all
+    @posts = "keep_data"
   end
 
   def destroy
