@@ -23,8 +23,8 @@
       <% if user_signed_in? %>
       <div class="d-flex justify-content-around">
         <% if current_user.id == @post.user_id %>
-        <%= link_to t('user_edit'), edit_post_path(@post), class: "text-decoration-none" %>
-        <%= link_to t('user_destroy'), post_path(@post), class: "text-decoration-none",
+        <%= link_to t('post_edit'), edit_post_path(@post), class: "text-decoration-none" %>
+        <%= link_to t('post_destroy'), post_path(@post), class: "text-decoration-none",
         method: :delete,
         data: { confirm: t('are_you_sure') } %>
         <% else %>

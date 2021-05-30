@@ -4,7 +4,7 @@ en:
   search: Search
   keyword: "Ex: Kanagawa / Ex: Food / Ex: Company"
   Most_Popular_Company_Posting: Most Popular Company Posting
-  title: Title
+  title: Job Title
   salary: Salary
   prefecture: Prefecture
   description: Description
@@ -29,24 +29,34 @@ en:
   new_password: New Password
   profile: Profile
   signout: Sign Out
-  speak: Knowledge of the Japanese language.
-  read: Japanese reading and writing.
-  job_description: Job description.
-  job_local: Local job / Address.
+  speak: Japanese Language Level
+  read: Japanese Reading and Writing Level
+  job_description: Description
+  job_local: Work Location / Address
   company: Company
-  contact: Contact
+  contact_person: Contact Person
   contact_phone: Contact phone
-  more_information: More informations
+  more_information: More information
   edit: Edit
   create: Create
   address: Address
   about_company: About Company
   save: Save
-  user_edit: Edit 🖊
+  post_edit: Edit 🖊
+  post_destroy: Delete
   user_destroy: Delete my account
   japanese_level: Japanese
   choose: Choose your user kind
   are_you_sure: Are you sure?
   views: Views
   ad: This ad already has
-  reset: reset
+  reset: Reset
+  unauthorized_message: Sorry, if you want to post the job, please first change your profile setting to company.
+  setup_profile_message: Please set up your profile before you post the job.
+  job_post_title: Job Description
+  email: Email
+  you_have_posted_: You have posted
+  job_here: job(s) here.
+  posted_job_found_for_keyword: Posted job(s) found for keyword
+  you_have_kept: You have kept
+

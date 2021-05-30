@@ -12,7 +12,7 @@
         <h5 class="user-name"><%= @user.name %></h5>
         <h6 class="user-email"><%= @user.email %></h6>
         <hr>
-        <h6 class="job-keeped">No of job posted: <%= @user.posts.count %> </h6>
+        <h6 class="job-keeped">No of job posted: <%= link_to "#{@user.posts.count}", user_posted_path(@user) %> </h6>
       </div>
       <div class="about">
         <h5></h5>

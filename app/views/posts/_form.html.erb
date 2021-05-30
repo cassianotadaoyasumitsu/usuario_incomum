@@ -1,20 +1,39 @@
-<% if current_user.kind == "Usuário" %>
+<% if current_user.kind == "Empresa" %>
+  <% if current_user.name.blank? %>
+  <div class="text-center"><%= t('setup_profile_message')%>
+    <p><%= link_to t('Your profile page'), user_path(current_user) %></p>
+  </div>
 
-<% elsif current_user.kind == "Empreiteira" %>
-<%= simple_form_for [user, post] do |f| %>
-<%= f.input :title, label: t('title') %>
-<%= f.input :service, label: t('speak'), collection: Post::NIHONGO %>
-<%= f.input :turn, label: t('read'), collection: Post::LEITURA %>
-<%= f.input :description, label: t('job_description') %>
-<%= f.input :prefecture, label: t('prefecture'), collection: Post::PREFECTURE %>
-<%= f.input :address, label: t('job_local') %>
-<%= f.input :value, label: t('salary') %>
-<%= f.input :company, label: t('company') %>
-<%= f.input :contact, label: t('contact') %>
-<%= f.input :phone, label: t('contact_phone') %>
-<%= f.input :note, label: t('more_information') %>
-<%= f.submit post.persisted? ? t('edit') : t('create'), class: 'btn btn-outline-primary w-100' %>
-<% end %>
+  <% else %>
+  <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-12 col-sm-12 col-12">
+  <div class="card-profile h-100">
+    <div class="card-body">
+    <h3 class="mb-2 text-primary text-center fonts"><%= t('job_post_title') %></h3>
+
+    <%= simple_form_for [user, post] do |f| %>
+    <%= f.input :company, label: t('company'), input_html: { value: current_user.name} %>
+    <%= f.input :title, label: t('title') %>
+    <%= f.input :service, label: t('speak'), collection: Post::NIHONGO %>
+    <%= f.input :turn, label: t('read'), collection: Post::LEITURA %>
+    <%= f.input :description, label: t('job_description') %>
+    <%= f.input :prefecture, label: t('prefecture'), collection: Post::PREFECTURE, selected: current_user.prefecture  %>
+    <%= f.input :address, label: t('job_local'), input_html: { value: current_user.address}  %>
+    <%= f.input :value, label: t('salary') %>
+    <%= f.input :contact, label: t('contact_person') %>
+    <%= f.input :phone, label: t('contact_phone'), input_html: { value: current_user.phone}  %>
+    <%= f.input :email, label: t('email'), input_html: { value: current_user.email}  %>
+    <%= f.input :note, label: t('more_information') %>
+    <%= f.button :button, t('Reset'), type:'reset', class: "btn btn-secondary" %>
+    <%= f.submit post.persisted? ? t('save') : t('create'), class: "btn btn-primary" %>
+  <% end %>
+    </div>
+  </div>
+  </div>
+  <% end %>
+<% else %>
+  <div class ="text-center"><%= t('unauthorized_message')%>
+  <p><%= link_to t('Your profile page'), user_path(current_user) %></p>
+  </div>
 <% end %>
 
 

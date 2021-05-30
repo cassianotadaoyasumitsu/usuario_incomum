@@ -26,13 +26,16 @@
         <%= link_to t('profile'), user_path(current_user), class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to t('my Keep list'), user_keeps_path(current_user), class: "nav-link" %>
+        <% if current_user.kind == "Empresa" %><%= link_to t('job_post'), new_user_post_path(current_user), class: "nav-link" %><% else %><% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to t('Keep list'), user_keeps_path(current_user), class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <% if current_user.kind == "Empresa" %><%= link_to t('Posted list'), user_posted_path(current_user), class: "nav-link" %><% else %><% end %>
       </li>
       <li class="nav-item d-none">
         <%= link_to 'Busca', posts_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <% if current_user.kind == "Empresa" %><%= link_to t('job_post'), new_user_post_path(current_user), class: "nav-link" %><% else %><% end %>
       </li>
       <li class="nav-item">
         <%= link_to t('signout'), destroy_user_session_path, class: "nav-link", method: :delete %>
