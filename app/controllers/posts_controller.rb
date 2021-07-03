@@ -1,11 +1,9 @@
 class PostsController < ApplicationController
   before_action :find_user, except: [:destroy, :show, :edit, :update, :index]
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
-
-
     @search = params['search']
     if @search.present?
       @posts = policy_scope(Post).search_info("#{@search}")
@@ -70,20 +68,23 @@ class PostsController < ApplicationController
     @search = params['search']
     if @search.present?
       @posts = Post.where(user_id: "#{@user.id}").search_info("#{@search}")
+      authorize @posts
     else
       @posts = Post.where(user_id: "#{@user.id}")
+      authorize @posts
     end
   end
 
   private
 
-  def set_restaurant
+  def set_post
     @post = Post.find(params[:id])
     authorize @post
   end
 
   def find_user
     @user = User.find(params[:user_id])
+    authorize(@user, :new?)
   end
 
   def post_params

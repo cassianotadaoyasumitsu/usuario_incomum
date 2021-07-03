@@ -10,7 +10,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def create?
-    user == User.find(params[:user_id])  # Anyone can create a restaurant
+    true  # Anyone can view a restaurant
   end
 
   def update?
@@ -19,5 +19,9 @@ class PostPolicy < ApplicationPolicy
 
   def destroy?
     record.user == user  # Only restaurant creator can update it
+  end
+
+  def user_posted?
+    true
   end
 end

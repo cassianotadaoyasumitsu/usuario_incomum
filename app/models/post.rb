@@ -29,8 +29,6 @@ class Post < ApplicationRecord
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 
-
-
   # validates :title, :service, :turn, :description, :prefecture, :address,
   # :value, :company, :contact, :phone, presence: true
 
