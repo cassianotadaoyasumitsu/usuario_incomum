@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    authorize @user
   end
 
   def create
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
     else
       render :new
     end
+    authorize @user
   end
 
   def edit
@@ -41,6 +43,7 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
+    authorize(@user, :new?)
   end
 
   def user_params

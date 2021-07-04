@@ -1,34 +1,37 @@
 class PostsController < ApplicationController
   before_action :find_user, except: [:destroy, :show, :edit, :update, :index]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
     @search = params['search']
     if @search.present?
-      @posts = Post.search_info("#{@search}")
+      @posts = policy_scope(Post).search_info("#{@search}")
     else
-      @posts = Post.all
+      @posts = policy_scope(Post)
     end
   end
 
   def show
-    @post = Post.find(params[:id])
     @post.punch(request)
     @shares = Share.all
   end
 
   def new
     @post = Post.new
+    authorize @post
   end
 
   def create
     @post = Post.new(post_params)
+    authorize @post
     @post.user = @user
     if current_user.kind == "Usuário"
       if current_user.posts.all.size >= 1
         redirect_to authenticated_root_path, notice: 'Você não pode criar mais de 1 post.'
       elsif @post.save
         redirect_to authenticated_root_path
+        authorize @post
       else
         render :new
       end
@@ -41,14 +44,14 @@ class PostsController < ApplicationController
         render :new
       end
     end
+
   end
 
   def edit
-    @post = Post.find(params[:id])
+
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to posts_path
     else
@@ -57,7 +60,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     redirect_to authenticated_root_path
   end
@@ -66,15 +68,23 @@ class PostsController < ApplicationController
     @search = params['search']
     if @search.present?
       @posts = Post.where(user_id: "#{@user.id}").search_info("#{@search}")
+      authorize @posts
     else
       @posts = Post.where(user_id: "#{@user.id}")
+      authorize @posts
     end
   end
 
   private
 
+  def set_post
+    @post = Post.find(params[:id])
+    authorize @post
+  end
+
   def find_user
     @user = User.find(params[:user_id])
+    authorize(@user, :new?)
   end
 
   def post_params
