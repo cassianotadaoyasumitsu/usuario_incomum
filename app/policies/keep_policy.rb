@@ -5,11 +5,11 @@ class KeepPolicy < ApplicationPolicy
     end
   end
     def show?
-      true  # Anyone can view a restaurant
+      true  # Anyone can view
     end
 
     def create?
-      true  # Anyone can view a restaurant
+      true  # Anyone can create
     end
 
     def update?
