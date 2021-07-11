@@ -309,6 +309,7 @@ DEPENDENCIES
   font-awesome-sass
   foreman (~> 0.87.1)
   jbuilder (~> 2.7)
+  kaminari
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   pg_search (~> 2.3.0)
