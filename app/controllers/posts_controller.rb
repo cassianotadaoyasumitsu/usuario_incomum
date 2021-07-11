@@ -67,10 +67,10 @@ class PostsController < ApplicationController
   def user_posted
     @search = params['search']
     if @search.present?
-      @posts = Post.where(user_id: "#{@user.id}").search_info("#{@search}")
+      @posts = Post.where(user_id: "#{@user.id}").search_info("#{@search}").page params[:page]
       authorize @posts
     else
-      @posts = Post.where(user_id: "#{@user.id}")
+      @posts = Post.where(user_id: "#{@user.id}").page params[:page]
       authorize @posts
     end
   end
