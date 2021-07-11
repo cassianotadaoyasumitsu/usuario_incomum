@@ -12,6 +12,7 @@
 
     <%= simple_form_for [user, post] do |f| %>
     <%= f.input :company, label: t('company'), input_html: { value: current_user.name} %>
+    <%= f.input :url %>
     <%= f.input :title, label: t('title') %>
     <%= f.input :service, label: t('speak'), collection: Post::NIHONGO %>
     <%= f.input :turn, label: t('read'), collection: Post::LEITURA %>
