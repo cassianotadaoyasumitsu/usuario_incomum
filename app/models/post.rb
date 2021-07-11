@@ -4,6 +4,9 @@ class Post < ApplicationRecord
   has_many :keeps, dependent: :destroy
   acts_as_punchable
 
+# Kaminari
+  paginates_per 3
+
   NIHONGO = ["Não é necessário", "10% ~ 30% (Básico)", "31% ~ 60% (Intermediário)", "61% ~ 100% (Avançado)"]
 
   PREFECTURE = ["Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata", "Fukushima",

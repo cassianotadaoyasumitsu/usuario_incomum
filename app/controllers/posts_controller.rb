@@ -6,9 +6,9 @@ class PostsController < ApplicationController
   def index
     @search = params['search']
     if @search.present?
-      @posts = policy_scope(Post).search_info("#{@search}")
+      @posts = policy_scope(Post).search_info("#{@search}").page params[:page]
     else
-      @posts = policy_scope(Post)
+      @posts = policy_scope(Post).page params[:page]
     end
   end
 
