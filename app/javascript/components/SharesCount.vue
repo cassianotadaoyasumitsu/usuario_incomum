@@ -35,13 +35,13 @@ export default {
   methods: {
     // rails側のindexアクションにリクエストするメソッド
     fetchShareByPostId: async function() {
-      const res = await axios.get(`/api/shares/?post_id=${this.postId}`)
+      const res = await axios.get(`/api/v1/shares/?post_id=${this.postId}`)
       if (res.status !== 200) { process.exit() }
       return res.data
     },
     // rails側のcreateアクションにリクエストするメソッド
     registerShare: async function() {
-      const res = await axios.post('/api/shares', { post_id: this.postId })
+      const res = await axios.post('/api/v1/shares', { post_id: this.postId })
       if (res.status !== 201) { process.exit() }
       this.fetchShareByPostId().then(result => {
         this.shareList = result
@@ -50,7 +50,7 @@ export default {
     // rails側のdestroyアクションにリクエストするメソッド
     deleteShare: async function() {
       const shareId = this.findShareId()
-      const res = await axios.delete(`/api/shares/${shareId}`)
+      const res = await axios.delete(`/api/v1/shares/${shareId}`)
       if (res.status !== 200) { process.exit() }
       this.shareList = this.shareList.filter(n => n.id !== shareId)
     }

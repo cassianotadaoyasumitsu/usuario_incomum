@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  namespace :api, { format: 'json' } do
-    resources :keeps, only: [:index, :create, :destroy]
-    resources :shares, only: [:index, :create, :destroy]
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :users
+      resources :keeps, only: [:index, :create, :destroy]
+      resources :shares, only: [:index, :create, :destroy]
+    end
   end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

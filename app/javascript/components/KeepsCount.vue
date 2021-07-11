@@ -45,13 +45,13 @@ export default {
   methods: {
     // rails側のindexアクションにリクエストするメソッド
     fetchKeepByPostId: async function() {
-      const res = await axios.get(`/api/keeps/?post_id=${this.postId}`)
+      const res = await axios.get(`/api/v1/keeps/?post_id=${this.postId}`)
       if (res.status !== 200) { process.exit() }
       return res.data
     },
     // rails側のcreateアクションにリクエストするメソッド
     registerKeep: async function() {
-      const res = await axios.post('/api/keeps', { post_id: this.postId })
+      const res = await axios.post('/api/v1/keeps', { post_id: this.postId })
       if (res.status !== 201) { process.exit() }
       this.fetchKeepByPostId().then(result => {
       this.keepList = result
@@ -60,7 +60,7 @@ export default {
     // rails側のdestroyアクションにリクエストするメソッド
     deleteKeep: async function() {
       const keepId = this.findKeepId()
-      const res = await axios.delete(`/api/keeps/${keepId}`)
+      const res = await axios.delete(`/api/v1/keeps/${keepId}`)
       if (res.status !== 200) { process.exit() }
       this.keepList = this.keepList.filter(n => n.id !== keepId)
     },

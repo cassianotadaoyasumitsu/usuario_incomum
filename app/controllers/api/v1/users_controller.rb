@@ -1,6 +1,6 @@
-class UsersController < ApplicationController
+class Api::V1::UsersController < Api::V1::BaseController
+  acts_as_token_authentication_handler_for User, except: [ :index, :show ]
   before_action :find_user, only: [:show, :edit, :update, :destroy]
-
   def index
     @users =  policy_scope(User)
   end
@@ -14,13 +14,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @company.save
-      redirect_to users_path
-    else
-      render :new
-    end
+    @user = User.new(restaurant_params)
     authorize @user
+    if @user.save
+      render :show, status: :created
+    else
+      render_error
+    end
   end
 
   def edit
@@ -29,24 +29,32 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       redirect_to user_path(current_user)
-    else
       render :edit
+    else
+      render_error
     end
   end
 
   def destroy
-    @user.destroy!
-    redirect_to unauthenticated_root_path
+    @restaurant.destroy
+    head :no_content
+    # No need to create a `destroy.json.jbuilder` view
   end
 
   private
 
   def find_user
     @user = User.find(params[:id])
-    authorize(@user, :new?)
+    authorize @user
   end
 
   def user_params
     params.require(:user).permit(:name, :gender, :age, :kind, :address, :phone, :prefecture, :nihongo, :note, :work, :extra)
   end
+
+  def render_error
+    render json: { errors: @restaurant.errors.full_messages },
+      status: :unprocessable_entity
+  end
+
 end
