@@ -15,15 +15,15 @@ class Post < ApplicationRecord
 
     LEITURA = ["Não é necessário", "10% ~ 30% (Básico)", "31% ~ 60% (Intermediário)", "61% ~ 100% (Avançado)"]
 
-   include PgSearch::Model
-  pg_search_scope :search_info,
-    against: [ :title, :service,:company,:contact,:salary,:prefecture,:address,:description,:value ],
+    include PgSearch::Model
+    pg_search_scope :search_info,
+    against: [:title, :service, :company, :contact, :salary, :prefecture, :address, :description, :value],
 
-   #if you want to search more table
-    # associated_against: {
-    #   user: [:name, :address],
-    #   tags: [:name]
-    # },
+# if you want to search more table
+# associated_against: {
+#   user: [:name, :address],
+#   tags: [:name]
+# },
 
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
@@ -33,9 +33,9 @@ class Post < ApplicationRecord
   # :value, :company, :contact, :phone, presence: true
 
   def self.top
-    select("posts.*, count(shares.id) AS shares_count").
-    joins(:shares).
-    group("posts.id").
-    order("shares_count DESC")
+    select("posts.*, count(shares.id) AS shares_count")
+      .joins(:shares)
+      .group("posts.id")
+      .order("shares_count DESC")
   end
 end
