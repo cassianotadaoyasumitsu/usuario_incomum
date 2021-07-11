@@ -6,9 +6,9 @@ class PostsController < ApplicationController
   def index
     @search = params['search']
     if @search.present?
-      @posts = policy_scope(Post).search_info("#{@search}")
+      @posts = policy_scope(Post).search_info("#{@search}").page params[:page]
     else
-      @posts = policy_scope(Post)
+      @posts = policy_scope(Post).page params[:page]
     end
   end
 
@@ -67,10 +67,10 @@ class PostsController < ApplicationController
   def user_posted
     @search = params['search']
     if @search.present?
-      @posts = Post.where(user_id: "#{@user.id}").search_info("#{@search}")
+      @posts = Post.where(user_id: "#{@user.id}").search_info("#{@search}").page params[:page]
       authorize @posts
     else
-      @posts = Post.where(user_id: "#{@user.id}")
+      @posts = Post.where(user_id: "#{@user.id}").page params[:page]
       authorize @posts
     end
   end
@@ -88,6 +88,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:phone, :title, :service, :company, :contact, :salary, :turn, :prefecture, :address, :description, :value, :note)
+    params.require(:post).permit(:phone, :title, :service, :company, :contact, :salary, :turn, :prefecture, :address, :description, :value, :note, :url)
   end
 end
