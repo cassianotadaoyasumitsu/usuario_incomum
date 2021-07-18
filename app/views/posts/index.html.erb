@@ -8,7 +8,10 @@
     <% else %>
     <h4 class="fonts"><%= @posts.count %> <%= t('jobs found for keyword:')%> <%= @search %></h4>
     <% end %>
-<%= render 'posts/post_index' %>
+    <% @posts.each do |post| %>
+      <%= render 'posts/post_index' , post: post %>
+    <% end %>
+    <%= paginate @posts %>
   </div>
 </div>
 

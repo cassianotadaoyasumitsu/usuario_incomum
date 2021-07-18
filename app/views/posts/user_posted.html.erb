@@ -1,6 +1,9 @@
 <div class="container">
   <div class="content">
     <h4 class="fonts"><%= t('you_have_posted')%>&nbsp;<%= @posts.count %>&nbsp;<%= t('job_here')%></h4>
-    <%= render 'posts/post_index' %>
+    <% @posts.each do |post| %>
+      <%= render 'posts/post_index' , post: post %>
+    <% end %>
+    <%= paginate @posts %>
   </div>
 </div>
