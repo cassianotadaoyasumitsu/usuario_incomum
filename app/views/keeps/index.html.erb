@@ -7,5 +7,6 @@
     <% @post = keep.post %>
     <%= render 'posts/post_index' , post: @post %>
     <% end %>
+    <%= paginate @posts %>
   </div>
 </div>
