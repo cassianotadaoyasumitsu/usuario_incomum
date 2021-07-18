@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :shares, dependent: :destroy
   has_many :keeps, dependent: :destroy
+  before_validation :dansk!
   acts_as_punchable
 
 # Kaminari
@@ -41,4 +42,10 @@ class Post < ApplicationRecord
       .group("posts.id")
       .order("shares_count DESC")
   end
+
+  def dansk!
+    self.value.gsub!('¥', '')
+  end
+
+
 end
