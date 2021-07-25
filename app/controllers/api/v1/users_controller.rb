@@ -14,7 +14,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   end
 
   def create
-    @user = User.new(restaurant_params)
+    @user = User.new(user_params)
     authorize @user
     if @user.save
       render :show, status: :created
