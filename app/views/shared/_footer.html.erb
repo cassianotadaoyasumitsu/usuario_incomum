@@ -25,18 +25,15 @@
       </div>
 
       <div class="col-md-6 col-lg-6 item text">
-        <form
-        action="https://formspree.io/f/xayayvpn"
-        method="POST"
-        >
-        <fieldset class="form-group">
-          <input type="email" name="_replyto" class="form-control" id="exampleInputEmail1" placeholder="<%= "#{t('enter_email')}" %>">
+        <form id="email_request" action="/email_requests" method="POST">
+        <fieldset class="form-group" >
+          <input type="email" name="email_request[email]" class="form-control" id="email_request_email" placeholder="<%= "#{t('enter_email')}" %>">
         </fieldset>
         <fieldset class="form-group">
-          <textarea name="message" class="form-control" id="exampleMessage" placeholder="<%= "#{t('message')}" %>"></textarea>
+          <textarea name="email_request[content]" class="form-control" id="email_request_content" placeholder="<%= "#{t('message')}" %>"></textarea>
         </fieldset>
         <fieldset class="form-group text-xs-right">
-          <button type="submit" class="btn-border-white btn-lg"><%= t('send') %></button>
+          <button type="submit" class="btn-border-white btn-lg" value="Create EmailRequest" data-disable-with="Create EmailRequest"><%= t('send') %></button>
         </fieldset>
       </form>
     </div>
