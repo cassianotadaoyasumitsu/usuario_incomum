@@ -5,15 +5,9 @@ class ApplicationController < ActionController::Base
   include Pundit
 
   def set_locale
-   if params[:locale]
-     cookies[:locale] = params[:locale]
-   end
-   if cookies[:locale]
-     if I18n.locale != cookies[:locale]
-       I18n.locale = cookies[:locale]
-     end
-   end
- end
+    cookies[:locale] = params[:locale] if params[:locale]
+    I18n.locale = cookies[:locale] if cookies[:locale] && (I18n.locale != cookies[:locale])
+  end
 
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -26,14 +20,13 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
- private
+  private
 
-def configure_permitted_parameters
-  devise_parameter_sanitizer.permit(:sign_up, keys: [:prefecture, :kind])
-end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[prefecture kind])
+  end
 
-def skip_pundit?
-  devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
-end
-
+  def skip_pundit?
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+  end
 end

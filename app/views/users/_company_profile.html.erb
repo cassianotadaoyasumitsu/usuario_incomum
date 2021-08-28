@@ -28,7 +28,7 @@
         <h3 class="mb-2 text-primary text-center fonts">Company Details</h3>
       <%= simple_form_for @user, html: {novalidate: true, class: "no-bs-validation w-100 mx-auto"}  do |f| %>
           <%= f.input :name, label: t('company'), class:"col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" %>
-          <%= f.input :kind, label: "#{t('kind')}", as: :radio_buttons, collection: User::KIND  %>
+          <%= f.input :kind, label: "#{t('kind')}", as: :radio_buttons, collection: User::KIND %>
           <%= f.input :email, label: t('Email'), class:"col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" %>
           <%= f.input :phone, label: t('contact_phone') %>
           <%= f.input :prefecture, label: t('prefecture'), collection: Post::PREFECTURE %>

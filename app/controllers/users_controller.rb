@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update, :destroy]
+  before_action :find_user, only: %i[show edit update destroy]
 
   def index
     @users =  policy_scope(User)
@@ -47,6 +47,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :gender, :age, :kind, :address, :phone, :prefecture, :nihongo, :note, :work, :extra)
+    params.require(:user).permit(:name, :gender, :age, :kind, :address, :phone, :prefecture, :nihongo, :note, :work,
+                                 :extra)
   end
 end

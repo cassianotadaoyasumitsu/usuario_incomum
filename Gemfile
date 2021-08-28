@@ -3,13 +3,17 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 
 ruby '2.6.6'
+<<<<<<< HEAD
 # api
 gem 'simple_token_authentication'
 #pundit
+=======
+# pundit
+>>>>>>> ad8d9dd (bundle update)
 gem 'pundit'
-#searchfeature
+# searchfeature
 gem 'pg_search', '~> 2.3.0'
-#vue server
+# vue server
 gem 'foreman', '~> 0.87.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.5'
@@ -53,12 +57,13 @@ gem 'kaminari-i18n'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
-group :development, :test do  gem 'pry-byebug'
+group :development, :test do
+  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
@@ -79,4 +84,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

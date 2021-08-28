@@ -2,7 +2,7 @@ class KeepsController < ApplicationController
   before_action :find_user, except: [:destroy]
 
   def index
-    @keeps = policy_scope(Keep).where(user_id:"#{@user.id}").all
+    @keeps = policy_scope(Keep).where(user_id: @user.id.to_s).all
     @posts = "keep_data"
   end
 
@@ -23,5 +23,4 @@ class KeepsController < ApplicationController
     @user = User.find(params[:user_id])
     authorize(@user, :new?)
   end
-
 end

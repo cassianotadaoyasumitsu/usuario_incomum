@@ -4,6 +4,7 @@ class KeepPolicy < ApplicationPolicy
       scope.all
     end
   end
+<<<<<<< HEAD
     def show?
       true  # Anyone can view
     end
@@ -11,16 +12,26 @@ class KeepPolicy < ApplicationPolicy
     def create?
       true  # Anyone can create
     end
+=======
 
-    def update?
-      record.user == user  # Only restaurant creator can update it
-    end
+  def show?
+    true  # Anyone can view a restaurant
+  end
+>>>>>>> ad8d9dd (bundle update)
 
-    def destroy?
-      record.user == user  # Only restaurant creator can update it
-    end
+  def create?
+    true  # Anyone can view a restaurant
+  end
 
-    def user_posted?
-      true
-    end
+  def update?
+    record.user == user  # Only restaurant creator can update it
+  end
+
+  def destroy?
+    record.user == user  # Only restaurant creator can update it
+  end
+
+  def user_posted?
+    true
+  end
 end

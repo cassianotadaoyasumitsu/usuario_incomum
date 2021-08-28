@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
-  before_action :find_user, except: [:destroy, :show, :edit, :update, :index]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [ :index ]
+  before_action :find_user, except: %i[destroy show edit update index]
+  before_action :set_post, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     @search = params['search']
     if @search.present?
-      @posts = policy_scope(Post).search_info("#{@search}").page params[:page]
+      @posts = policy_scope(Post).search_info(@search.to_s).page params[:page]
     else
       @posts = policy_scope(Post).page params[:page]
     end
@@ -35,20 +35,16 @@ class PostsController < ApplicationController
       else
         render :new
       end
+    elsif current_user.posts.all.size >= 10
+      redirect_to authenticated_root_path, notice: 'Você não pode criar mais posts.'
+    elsif @post.save
+      redirect_to posts_path
     else
-      if current_user.posts.all.size >= 10
-        redirect_to authenticated_root_path, notice: 'Você não pode criar mais posts.'
-      elsif @post.save
-        redirect_to posts_path
-      else
-        render :new
-      end
+      render :new
     end
-
   end
 
   def edit
-
   end
 
   def update
@@ -67,12 +63,11 @@ class PostsController < ApplicationController
   def user_posted
     @search = params['search']
     if @search.present?
-      @posts = Post.where(user_id: "#{@user.id}").search_info("#{@search}").page params[:page]
-      authorize @posts
+      @posts = Post.where(user_id: @user.id.to_s).search_info(@search.to_s).page params[:page]
     else
-      @posts = Post.where(user_id: "#{@user.id}").page params[:page]
-      authorize @posts
+      @posts = Post.where(user_id: @user.id.to_s).page params[:page]
     end
+    authorize @posts
   end
 
   private
@@ -88,6 +83,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:phone, :title, :service, :company, :contact, :salary, :turn, :prefecture, :address, :description, :value, :note, :url)
+    params.require(:post).permit(:phone, :title, :service, :company, :contact, :salary, :turn, :prefecture, :address,
+                                 :description, :value, :note, :url)
   end
 end
