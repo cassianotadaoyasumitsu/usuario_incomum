@@ -3,13 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 
 ruby '2.6.6'
-<<<<<<< HEAD
 # api
 gem 'simple_token_authentication'
 #pundit
-=======
-# pundit
->>>>>>> ad8d9dd (bundle update)
 gem 'pundit'
 # searchfeature
 gem 'pg_search', '~> 2.3.0'
