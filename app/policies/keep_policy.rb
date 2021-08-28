@@ -4,7 +4,7 @@ class KeepPolicy < ApplicationPolicy
       scope.all
     end
   end
-<<<<<<< HEAD
+
     def show?
       true  # Anyone can view
     end
@@ -12,12 +12,6 @@ class KeepPolicy < ApplicationPolicy
     def create?
       true  # Anyone can create
     end
-=======
-
-  def show?
-    true  # Anyone can view a restaurant
-  end
->>>>>>> ad8d9dd (bundle update)
 
   def create?
     true  # Anyone can view a restaurant
