@@ -26,4 +26,5 @@ Rails.application.routes.draw do
     end
   end
   resources :posts, only: [:show, :edit, :update, :destroy, :index]
+  resources :email_requests, only:  [:new,:create, :index]
 end
