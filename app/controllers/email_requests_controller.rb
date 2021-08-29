@@ -14,7 +14,6 @@ class EmailRequestsController < ApplicationController
     @email_request = EmailRequest.new(email_request_params)
     @email_request.save
     authorize @email_request
-    raise
     redirect_to unauthenticated_root_path
   end
 
