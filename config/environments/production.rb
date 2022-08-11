@@ -6,7 +6,7 @@ Rails.application.configure do
     address: 'smtp.zoho.com',
     port: 465,
     user_name: 'cassiano@usuarioincomum.com',
-    password: 'gynhob-0fYcxu-gitxej',
+    password: 'LVaG4K6p2vrb',
     authentication: 'plain',
     ssl: true,
     tls: true,
